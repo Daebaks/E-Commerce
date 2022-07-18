@@ -1,3 +1,9 @@
+# Maven
+.classpath
+.factorypath
+.project
+HELP.md
+
 # Compiled class file
 *.class
 
