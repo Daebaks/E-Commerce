@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -34,8 +36,10 @@ public class Order {
 //	@javax.persistence.MapKey(name = "items_quantity")
 //	private Map<Integer, Integer> items_quantity;   //sku - quantity
 	
-	@Column(name = "sku_order")
-	private int sku_order;
+	
+	@JoinColumn(name="sku_order", referencedColumnName="sku")
+	@OneToOne
+	private Product product;
 	
 	@Column(name = "quantity_sold")
 	private int quantity_sold;
@@ -43,9 +47,9 @@ public class Order {
 	@Column(name = "order_date")
 	private LocalDate order_date;
 
-	public Order(int sku_order, int quantity_sold, LocalDate order_date) {
+	public Order(Product product, int quantity_sold, LocalDate order_date) {
 		super();
-		this.sku_order = sku_order;
+		this.product = product;
 		this.quantity_sold = quantity_sold;
 //		this.order_date = order_date;
 	}

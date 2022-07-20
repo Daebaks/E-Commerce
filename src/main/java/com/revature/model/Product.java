@@ -37,9 +37,6 @@ public class Product {
 	@Column(name = "category")
 	private String category;
 	
-	@ManyToOne (cascade=CascadeType.ALL)
-	@JoinColumn(name="inventory_fk", referencedColumnName="inventory_id")
-	private Inventory inventory;
 	
 	Product(String name, Double unitprice, String category){
 		super();
