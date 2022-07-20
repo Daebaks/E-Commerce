@@ -1,5 +1,10 @@
 package com.revature.service;
 
-public interface ProductService {
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class ProductService {
+	
+	@Autowired
+	ProductService productService;
 
 }
