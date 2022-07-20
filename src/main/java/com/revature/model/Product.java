@@ -37,12 +37,17 @@ public class Product {
 	@Column(name = "category")
 	private String category;
 	
-	
-	Product(String name, Double unitprice, String category){
+	@Column(name = "quantity")
+	private int quantity;
+
+	public Product(@NotBlank String name, Double unitprice, String category, int quantity) {
 		super();
 		this.name = name;
 		this.unitprice = unitprice;
 		this.category = category;
+		this.quantity = quantity;
 	}
+	
+	 
 
 }

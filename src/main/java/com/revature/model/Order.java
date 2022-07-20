@@ -35,11 +35,6 @@ public class Order {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int order_id;
 	
-	//This will be filled by aggregating the junction table of order_customer and orders table
-//	@javax.persistence.OneToMany(cascade = CascadeType.ALL)
-//	@javax.persistence.MapKey(name = "items_quantity")
-//	private Map<Integer, Integer> items_quantity;   //sku - quantity
-	
 	
 	@JoinColumn(name="sku_order", referencedColumnName="sku")
 	@OneToOne
@@ -54,16 +49,15 @@ public class Order {
 	@ManyToMany(mappedBy = "userOrdersList", fetch = FetchType.LAZY)
     private Set<User> users = new HashSet<>();
 
-	public Order(Product product, int quantity_sold, LocalDate order_date) {
+	public Order(Product product, int quantity_sold, LocalDate order_date, Set<User> users) {
 		super();
 		this.product = product;
 		this.quantity_sold = quantity_sold;
-//		this.order_date = order_date;
+		this.order_date = order_date;
+		this.users = users;
 	}
-	
-	
-	
 
+	
 	 
 	
 	
