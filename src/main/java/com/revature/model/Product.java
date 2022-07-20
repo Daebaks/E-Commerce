@@ -35,9 +35,10 @@ public class Product {
 	@Column(name = "category")
 	private String category;
 	
-	Product(String name, Double unitprice){
+	Product(String name, Double unitprice, String category){
 		this.name = name;
 		this.unitprice = unitprice;
+		this.category = category;
 	}
 
 }
