@@ -35,6 +35,7 @@ public class Product {
 	private String category;
 	
 	Product(String name, Double unitprice, String category){
+		super();
 		this.name = name;
 		this.unitprice = unitprice;
 		this.category = category;
