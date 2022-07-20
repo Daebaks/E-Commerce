@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 
-@Entity(name = "Product")
+@Entity(name = "product")
 @Data
 public class Product {
 
