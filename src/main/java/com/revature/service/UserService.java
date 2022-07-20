@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.data.UserRepository;
+import com.revature.exception.UserNotFoundException;
 import com.revature.model.User;
 
 @Service
