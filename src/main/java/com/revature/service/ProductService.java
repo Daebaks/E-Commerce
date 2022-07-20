@@ -1,5 +1,5 @@
 package com.revature.service;
 
-public class ProductService {
+public interface ProductService {
 
 }
