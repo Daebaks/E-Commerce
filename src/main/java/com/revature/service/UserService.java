@@ -30,13 +30,11 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 	
 	// Find by username
 	public User getByUsername(String username) {
-		
 		return userRepo.findByUsername(username)
 				.orElseThrow(() -> new UserNotFoundException("No User found with username: " + username));
 	}
 	
 	public User getById(int id) {
-		
 		if( id<=0) {
 			log.warn("Id cannot be Zero: {}", id);
 			return null;
@@ -45,15 +43,12 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 	}
 	
 	public User add(User u) {
-		
 		User returnedUser = userRepo.save(u);
-		
 		if (returnedUser.getID() >0) {
 			log.info("Successfully returned user with id {}", returnedUser.getID());
 		} else {
 			log.warn("Could not add user");
 		}
-		
 		return returnedUser;
 	}
 	
@@ -63,7 +58,6 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 	
 	public boolean delete(int id) {
 		userRepo.deleteById(id);
-		
 		return !(userRepo.existsById(id));
 	}
 
