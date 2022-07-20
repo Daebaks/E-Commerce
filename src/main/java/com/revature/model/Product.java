@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -36,6 +35,7 @@ public class Product {
 	private String category;
 	
 	Product(String name, Double unitprice, String category){
+		super();
 		this.name = name;
 		this.unitprice = unitprice;
 		this.category = category;
