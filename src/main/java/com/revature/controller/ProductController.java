@@ -65,7 +65,7 @@ public class ProductController {
 	}
 
 	@DeleteMapping("delete/{sku}")
-	public boolean deleteProduct(@PathVariable("id") int sku) {
+	public boolean deleteProduct(@PathVariable("sku") Product sku) {
 		return productService.delete(sku);
 	}
 

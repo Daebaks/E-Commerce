@@ -10,6 +10,7 @@ import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import com.revature.data.ProductRepository;
+import com.revature.exceptions.ProductNotFoundException;
 import com.revature.model.Product;
 
 @Service
@@ -56,12 +57,5 @@ public class ProductService {
 
 		return !(productRepository.exists((Product) sku));
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 }
