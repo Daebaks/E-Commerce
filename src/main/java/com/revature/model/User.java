@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -34,7 +35,7 @@ public class User {
 	@Id
 	@Column(name = "user_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int ID;
+	private int id;
 
 	@NotBlank
 	@Length(min = 5)
@@ -47,15 +48,7 @@ public class User {
 	@Email
 	private String email;
 
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "order_flow", joinColumns = {
-			@JoinColumn(name = "user_id", referencedColumnName = "user_id") }, inverseJoinColumns = {
-					@JoinColumn(name = "order_id", referencedColumnName = "order_id") })
-	private Set<Order> userOrdersList = new HashSet<>();
-
-	// private List cart; //not sure what we are calling this part yet and not in
-	// the erd
-
+	
 	public User(@NotBlank @Length(min = 5) @Pattern(regexp = "[a-zA-Z][a-zA-Z0-9]*") String username,
 			@NotBlank String password, @Email String email) {
 		super();

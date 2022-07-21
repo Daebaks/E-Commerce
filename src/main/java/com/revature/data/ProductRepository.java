@@ -11,6 +11,7 @@ import com.revature.model.Product;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 	
+	
 	public Optional<Product> findByName(String name);
 	
 	public List<Product> findByCategory(String category);
