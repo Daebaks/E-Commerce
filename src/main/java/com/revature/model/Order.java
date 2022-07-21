@@ -2,9 +2,13 @@ package com.revature.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -14,10 +18,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 @Entity
-@Table(name="order")
+@Table(name="orders")
 @Data // generate getters/setter, toString, hashCode, and equals methods automatically
 @NoArgsConstructor
 @AllArgsConstructor
@@ -28,13 +35,26 @@ public class Order {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int order_id;
 	
-	//This will be filled by aggregating the junction table of order_customer and orders table
-	private Map<Integer, Integer> items_quantity;   //sku - quantity
+	
+	@JoinColumn(name="sku_order", referencedColumnName="sku")
+	@OneToOne
+	private Product product;
+	
+	@Column(name = "quantity_sold")
+	private int quantity_sold;
+	
+	@Column(name = "order_date")
+	private LocalDate order_date;
+	
+	@ManyToMany(mappedBy = "userOrdersList", fetch = FetchType.LAZY)
+    private Set<User> users = new HashSet<>();
 
-	public Order(Map<Integer, Integer> items_quantity) {
+	public Order(Product product, int quantity_sold, LocalDate order_date, Set<User> users) {
 		super();
-		this.items_quantity = items_quantity;
+		this.product = product;
+		this.quantity_sold = quantity_sold;
+		this.order_date = order_date;
+		this.users = users;
 	}
-	
-	
+
 }
