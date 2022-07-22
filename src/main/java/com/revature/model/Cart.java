@@ -28,7 +28,7 @@ import java.util.Set;
 
 @Entity
 @Table(name="cart")
-@Data // generate getters/setter, toString, hashCode, and equals methods automatically
+@Data 
 @NoArgsConstructor
 @AllArgsConstructor
 public class Cart {
@@ -42,14 +42,20 @@ public class Cart {
 	@Column(name = "quantity_added")
 	private int quantity_added;
 	
-	
 	@JoinColumn(name="user_id_fk", referencedColumnName="user_id")
 	@ManyToOne
-    private User users;
+    private User user;
 	
 	@JoinColumn(name="sku_fk", referencedColumnName="sku")
 	@ManyToOne
 	private Product product;
+
+	public Cart(int quantity_added, User user, Product product) {
+		super();
+		this.quantity_added = quantity_added;
+		this.user = user;
+		this.product = product;
+	}
 	
 	
 

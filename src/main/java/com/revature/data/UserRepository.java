@@ -12,11 +12,5 @@ import com.revature.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer>{
 	
-	public Optional<User> findByUsername(String username);
-	
-	public List<User> findByOrderByUsername();
-	
-	@Query("FROM User WHERE email LIKE %:pattern%")
-	public List<User> findByEmailContains(String pattern);
-
+	public User getByUsername(String username);
 }
