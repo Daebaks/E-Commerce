@@ -29,45 +29,45 @@ public class ProductController {
 //		this.productService = productService;
 //	}
 
-	@GetMapping
-	public Set<Product> getAll() {
-		return productService.findAll();
-	}
-
-	@GetMapping("find/{product}")
-	public Product findByProductName(@PathVariable("product") String product) {
-		return productService.getByProductName(product);
-	}
-
-	@GetMapping("findQuery")
-	public Product findByProductRequest(@RequestParam("product") String product) {
-		return productService.getByProductName(product);
-	}
-
-	@GetMapping("findHeader")
-	public Product findByHeader(@RequestHeader("product") String product) {
-		return productService.getByProductName(product);
-	}
-
-	@GetMapping("findHeader2")
-	public Product findByHeader2(@RequestHeader HttpHeaders httpHeaders) {
-		return productService.getByProductName(httpHeaders.getFirst("product"));
-	}
-
-	@PostMapping
-	public Product addNewProduct(@RequestBody Product product) {
-		return productService.add(product);
-	}
-
-	@PutMapping("update")
-	public Product updateProduct(@RequestBody Product product) {
-		return productService.update(product);
-	}
-
-	@DeleteMapping("delete/{sku}")
-
-	public boolean deleteProduct(@PathVariable("sku") Product sku) {
-		return productService.delete(sku);
-	}
+//	@GetMapping
+//	public Set<Product> getAll() {
+//		return productService.findAll();
+//	}
+//
+//	@GetMapping("find/{product}")
+//	public Product findByProductName(@PathVariable("product") String product) {
+//		return productService.getByProductName(product);
+//	}
+//
+//	@GetMapping("findQuery")
+//	public Product findByProductRequest(@RequestParam("product") String product) {
+//		return productService.getByProductName(product);
+//	}
+//
+//	@GetMapping("findHeader")
+//	public Product findByHeader(@RequestHeader("product") String product) {
+//		return productService.getByProductName(product);
+//	}
+//
+//	@GetMapping("findHeader2")
+//	public Product findByHeader2(@RequestHeader HttpHeaders httpHeaders) {
+//		return productService.getByProductName(httpHeaders.getFirst("product"));
+//	}
+//
+//	@PostMapping
+//	public Product addNewProduct(@RequestBody Product product) {
+//		return productService.add(product);
+//	}
+//
+//	@PutMapping("update")
+//	public Product updateProduct(@RequestBody Product product) {
+//		return productService.update(product);
+//	}
+//
+//	@DeleteMapping("delete/{sku}")
+//
+//	public boolean deleteProduct(@PathVariable("sku") Product sku) {
+//		return productService.delete(sku);
+//	}
 
 }

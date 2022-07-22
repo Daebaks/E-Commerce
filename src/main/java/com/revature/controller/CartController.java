@@ -1,5 +1,5 @@
 package com.revature.controller;
 
-public class OrderController {
+public class CartController {
 
 }
