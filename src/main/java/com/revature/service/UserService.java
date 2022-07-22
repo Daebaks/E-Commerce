@@ -97,13 +97,13 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 
 	public User login(String username, String password) {
 		User u = userRepo.getByUsername(username);
+		log.info(u.toString());
 		if (u==null) {
 			throw new UserNotFoundException("Wrong username or user doesn't exist");
 		}
 		else if(!u.getPassword().equals(password)){
 			throw new WrongPasswordException("The password did not match with our records");
 		}
-		
 		return u;
 	}
 	
