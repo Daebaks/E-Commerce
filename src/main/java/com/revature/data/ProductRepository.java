@@ -11,7 +11,7 @@ import com.revature.model.Product;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 	
-	public Product getByProductSku(Long sku);
+	public Product getBySku(Long sku);
 	
 	@Query("FROM product WHERE quantity > 0")
 	public List<Product> getAvailableProducts();
