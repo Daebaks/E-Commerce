@@ -33,10 +33,10 @@ public class ProductController {
 		return productService.add(product);
 	}
 	
-	@GetMapping("available")
-	public List<Product> getAllAvailableProducts(){
-		return productService.getAvailable();
-	}
+//	@GetMapping("available")
+//	public List<Product> getAllAvailableProducts(){
+//		return productService.getAvailable();
+//	}
 	
 	@PutMapping
 	public Product updateProduct(@RequestBody Product product) {

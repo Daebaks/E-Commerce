@@ -22,9 +22,9 @@ public class ProductService {
 		return productRepository.findAll();
 	}
 	
-	public List<Product> getAvailable(){
-		return productRepository.getAvailableProducts();
-	}
+//	public List<Product> getAvailable(){
+//		return productRepository.getAvailableProducts();
+//	}
 	
 	public Product findBySku(Long sku) {
 		return productRepository.getReferenceById(sku);
