@@ -12,15 +12,15 @@ import com.revature.model.Product;
 public interface ProductRepository extends JpaRepository<Product, Long> {
 	
 	
-	public Optional<Product> findByName(String name);
-	
-	public List<Product> findByCategory(String category);
-	
-	public List<Product> findBySku(Long sku);
-	
-	public List<Product> findByUnitprice(Double unitprice);
-
-	public boolean exists(Product sku);
-
-	public void deleteBySku(Product sku);
+//	public Optional<Product> findByName(String name);
+//	
+//	public List<Product> findByCategory(String category);
+//	
+//	public List<Product> findBySku(Long sku);
+//	
+//	public List<Product> findByUnitprice(Double unitprice);
+//
+//	public boolean exists(Product sku);
+//
+//	public void deleteBySku(Product sku);
 }
