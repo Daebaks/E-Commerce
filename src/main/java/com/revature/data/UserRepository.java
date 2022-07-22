@@ -13,7 +13,4 @@ import com.revature.model.User;
 public interface UserRepository extends JpaRepository<User, Integer>{
 	
 	public User getByUsername(String username);
-	
-	public User getById();
-
 }

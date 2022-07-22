@@ -8,7 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.revature.data.UserRepository;
 import com.revature.exception.SameEmailExistsException;
 import com.revature.exception.UserNameAlreadyTakenException;
@@ -83,7 +82,7 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 			userToUpdate.setUsername(u.getUsername());
 		}
 		if(u.getPassword()!=null) {
-			userToUpdate.setUsername(u.getPassword());
+			userToUpdate.setPassword(u.getPassword());
 		}
 		return userRepo.save(userToUpdate);
 	}
