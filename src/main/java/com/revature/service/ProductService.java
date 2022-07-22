@@ -1,43 +1,48 @@
 package com.revature.service;
 
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import com.revature.data.ProductRepository;
-import com.revature.exception.ProductNotFoundException;
 import com.revature.model.Product;
 
 @Service
 public class ProductService {
 
-//	private Logger log = LoggerFactory.getLogger(this.getClass());
-//
-//	@Autowired
-//	ProductRepository productRepository;
-//
-//	public Set<Product> findAll() {
-//		return productRepository.findAll().stream().collect(Collectors.toSet());
-//	}
-//
-//	public Product getByProductName(String product) {
-//		return productRepository.findByName(product)
-//				.orElseThrow(() -> new ProductNotFoundException("No Product found with product name: " + product));
-//	}
-//
-//	public Product getBySku(Long sku) {
-//		if (sku <= 0) {
-//			log.warn("Sku cannot be Zero: {}", sku);
-//			return null;
-//		}
-//		return (Product) productRepository.findBySku(sku);
-//	}
-//
+	private Logger log = LoggerFactory.getLogger(this.getClass());
+
+	@Autowired
+	ProductRepository productRepository;
+
+	public List<Product> findAll() {
+		return productRepository.findAll();
+	}
+	
+	public List<Product> getAvailable(){
+		return productRepository.getAvailableProducts();
+	}
+	
+	public Product findBySku(Long sku) {
+		return productRepository.getReferenceById(sku);
+	}
+
+	public Product add(Product product) {
+		return productRepository.save(product);
+	}
+	
+	public Product update(Product product) {
+		return productRepository.save(product);
+	}
+	
+	public boolean delete(Product product) {
+		productRepository.delete(product);
+		return productRepository.existsById(product.getSku());
+	}
+	
 //	public Product add(Product product) {
 //		Product returnedProduct = productRepository.save(product);
 //		if (returnedProduct.getSku() > 0) {
@@ -47,15 +52,4 @@ public class ProductService {
 //		}
 //		return returnedProduct;
 //	}
-//
-//	public Product update(Product product) {
-//		return productRepository.save(product);
-//	}
-//
-//	public boolean delete(Product sku) {
-//		productRepository.deleteBySku(sku);
-//
-//		return !(productRepository.exists((Product) sku));
-//	}
-	
 }
