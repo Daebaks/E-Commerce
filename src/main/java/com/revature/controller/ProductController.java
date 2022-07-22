@@ -28,10 +28,6 @@ public class ProductController {
 		return productService.findAll();
 	}
 	
-	@PostMapping
-	public Product addProduct(@RequestBody Product product) {
-		return productService.add(product);
-	}
 	
 //	@GetMapping("available")
 //	public List<Product> getAllAvailableProducts(){
@@ -43,9 +39,4 @@ public class ProductController {
 		return productService.update(product);
 	}
 	
-	@DeleteMapping
-	public boolean delete(@RequestBody Product product) {
-		return productService.delete(product);
-	}
-
 }

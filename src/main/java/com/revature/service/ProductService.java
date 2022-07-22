@@ -22,34 +22,15 @@ public class ProductService {
 		return productRepository.findAll();
 	}
 	
-//	public List<Product> getAvailable(){
-//		return productRepository.getAvailableProducts();
-//	}
 	
 	public Product findBySku(Long sku) {
 		return productRepository.getReferenceById(sku);
 	}
 
-	public Product add(Product product) {
-		return productRepository.save(product);
-	}
-	
+
 	public Product update(Product product) {
 		return productRepository.save(product);
 	}
 	
-	public boolean delete(Product product) {
-		productRepository.delete(product);
-		return productRepository.existsById(product.getSku());
-	}
-	
-//	public Product add(Product product) {
-//		Product returnedProduct = productRepository.save(product);
-//		if (returnedProduct.getSku() > 0) {
-//			log.info("Successfully returned product with sku {}", returnedProduct.getSku());
-//		} else {
-//			log.warn("Could not add product");
-//		}
-//		return returnedProduct;
-//	}
+
 }
