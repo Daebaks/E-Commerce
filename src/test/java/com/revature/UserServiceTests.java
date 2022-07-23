@@ -41,7 +41,6 @@ class UserServiceTests {
 	@Test
 	void testAddUserReturnsNewPKId() {
 		dummyUser = new User(0, "toddjones", "password1", "tjones@me.com", new LinkedList<Product>());
-		
 		Random r = new Random();
 		int fakePK = r.nextInt(100);
 		
@@ -63,6 +62,7 @@ class UserServiceTests {
 		User loggeUser = us.login(username, password);
 		
 		assertEquals(loggeUser.getUsername(), username);
+
 	}
 
 }
