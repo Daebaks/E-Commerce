@@ -10,15 +10,14 @@
   font-family: "El Messiri", sans-serif;
 }
 html {
+  position: relative;
+  min-height: 100%;
   scroll-behavior: smooth;
-  height: 100%;
-  width: 100%;
 }
 body {
+  margin: 150px 0 200px;
   height: 100%;
   width: 100%;
-  margin: 0;
-  margin-top: 150px;
   line-height: 1.6;
   padding: 0.12%;
   background-color: rgb(196, 224, 238);
@@ -109,6 +108,7 @@ body {
   right: 28px;
   width: 280px;
   font-size: 1.3em;
+  z-index: 1;
 }
 
 /* The popup chat - hidden by default */
@@ -175,8 +175,12 @@ body {
   background: #d1dddf;
   color: rgb(41, 34, 34);
   text-align: center;
-  padding: 2.5em 0;
   font-size: 1.5em;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
 }
 
 .footer a {
@@ -211,7 +215,4 @@ body {
 
 .social-list__link {
   padding: 0.5em;
-}
-#footer-line {
-  margin-top: 150px;
 }
