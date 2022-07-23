@@ -1,5 +1,6 @@
 package com.revature.service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -8,11 +9,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.revature.data.ProductRepository;
 import com.revature.data.UserRepository;
+import com.revature.exception.ProductAlreadyInCartException;
+import com.revature.exception.ProductOutOfStockException;
 import com.revature.exception.SameEmailExistsException;
 import com.revature.exception.UserNameAlreadyTakenException;
 import com.revature.exception.UserNotFoundException;
 import com.revature.exception.WrongPasswordException;
+import com.revature.model.Product;
 import com.revature.model.User;
 
 @Service
@@ -23,7 +29,9 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 	@Autowired
 	UserRepository userRepo;
 	
-	// Let's add in a couple methods to call upon the Repo
+	@Autowired
+	ProductRepository productRepo;
+	
 	
 	public Set<User> findAll(){
 		// return from the user repository the findall method but stream it to a set
@@ -101,12 +109,34 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 		if (u==null) {
 			throw new UserNotFoundException("Wrong username or user doesn't exist");
 		}
-		else if(!u.getPassword().equals(password)){
+		if(!u.getPassword().equals(password)){
 			throw new WrongPasswordException("The password did not match with our records");
 		}
 		return u;
 	}
 	
+	public User addToCart(int id, Long sku) {
+		User u = userRepo.findById(id).get();
+		Product p = productRepo.getReferenceById(sku);
+		for(Product pr: u.getCart()) {
+			if(pr.equals(p)) {
+				throw new ProductAlreadyInCartException("The product is already in your cart");
+			}
+		}
+		
+		if(p.getQuantity()==0) {
+			throw new ProductOutOfStockException("Product is out of stock");
+		}
+		
+		List<Product> cart = u.getCart();
+		cart.add(p);
+		u.setCart(cart);
+		p.setQuantity(p.getQuantity()-1);
+		productRepo.save(p);
+		userRepo.save(u);
+		
+		return u;
+	}
 	
 	
 }
