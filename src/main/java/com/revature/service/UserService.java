@@ -122,18 +122,27 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 				throw new ProductAlreadyInCartException("The product is already in your cart");
 			}
 		}
-		
 		if(p.getQuantity()==0) {
 			throw new ProductOutOfStockException("Product is out of stock");
 		}
-		
 		List<Product> cart = u.getCart();
 		cart.add(p);
 		u.setCart(cart);
 		p.setQuantity(p.getQuantity()-1);
 		productRepo.save(p);
 		userRepo.save(u);
-		
+		return u;
+	}
+	
+	public User removeFromCart(int id, Long sku) {
+		User u = userRepo.findById(id).get();
+		Product p = productRepo.getReferenceById(sku);
+		List<Product> cart = u.getCart();
+		cart.remove(p);
+		u.setCart(cart);
+		p.setQuantity(p.getQuantity()+1);
+		productRepo.save(p);
+		userRepo.save(u);
 		return u;
 	}
 	

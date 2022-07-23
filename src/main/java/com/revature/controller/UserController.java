@@ -65,6 +65,12 @@ public class UserController {
 		return u;
 	}
 	
+	@PostMapping("removefromcart/{sku}")
+	public User removeFromCart(@PathVariable("sku") Long sku, @RequestHeader("user_id") int id) {
+		User u = us.removeFromCart(id, sku);
+		return u;
+	}
+	
 }
 class LoginObj {
 	public String username;
