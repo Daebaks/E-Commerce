@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Reva-Mart</title>
+    <meta charset="utf-8" />
+    <link
+      rel="icon"
+      href="../assets/favicon.png"
+      type="image/gif"
+      sizes="16x16"
+    />
+    <link rel="stylesheet" href="../css/home.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+    />
+    <script src="../js/home.js"></script>
+  </head>
+  <body>
+    <nav id="nav_bar">
+      <a href="home.html"><h1>Reva-Mart</h1></a>
+      <a class="nav_bar_link" href="home.html">Home</a>
+      <a class="nav_bar_link" href="products.html">Products</a>
+      <a class="nav_bar_link" href="login.html">Sign in/up</a>
+      <a class="nav_bar_link" href="profile.html">Profile</a>
+      <a class="nav_bar_cart" href="cart.html"
+        ><i class="fa fa-shopping-cart"></i
+      ></a>
+      <hr id="nav-line" />
+    </nav>
+
+    <section id="intro">
+      <p>
+        Welcome to Reva-Mart store<br />
+        The oldest store in the town <br />
+        Celebrating 75 years of serving thousands of customers with essential
+        daily needed products and food<br />
+        <img
+          src="../assets/25y.png"
+          alt="25years"
+          width="150"
+          height="150"
+        /><br /><br />
+        Established in 1944 by Revature group<br />
+      </p>
+      <div class="autoslider">
+        <figure>
+          <img src="../assets/1.jpg" alt="similarTo1" />
+          <img src="../assets/2.jpg" alt="similarTo2" />
+          <img src="../assets/3.jpg" alt="similarTo3" />
+          <img src="../assets/4.jpg" alt="similarTo4" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- chat button/form -->
+    <button class="open-button" onclick="openForm()">
+      Contact Us &#128522;
+    </button>
+    <div class="chat-popup" id="myForm">
+      <form action="/action_page.php" class="form-container">
+        <h1>Chat with staff!</h1>
+
+        <label><b>Message</b></label>
+        <textarea
+          placeholder="Type your message.."
+          name="msg"
+          required
+        ></textarea>
+
+        <button type="submit" class="btn">Send</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">
+          Close
+        </button>
+      </form>
+    </div>
+  </body>
+</html>
