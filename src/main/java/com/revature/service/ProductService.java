@@ -1,5 +1,6 @@
 package com.revature.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -31,11 +32,25 @@ public class ProductService {
 	public Product update(Product product) {
 		return productRepository.save(product);
 	}
-
-
-//	public List<Product> getAvailable() {
-//		return productRepository.getAvailable();
-//	}
 	
+
+	public List<Product> getInStock() {
+		List<Product> available = new ArrayList<>();
+		for(Product p: productRepository.findAll()) {
+			if(p.getQuantity()>0) {
+				available.add(p);
+			}
+		}
+		return available;
+	}
+	public List<Product> getOutOfStock() {
+		List<Product> notAvailable = new ArrayList<>();
+		for(Product p: productRepository.findAll()) {
+			if(p.getQuantity()==0) {
+				notAvailable.add(p);
+			}
+		}
+		return notAvailable;
+	}
 
 }
