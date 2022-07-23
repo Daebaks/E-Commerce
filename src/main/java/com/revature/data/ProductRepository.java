@@ -13,8 +13,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	
 //	public Product getBySku(Long sku);
 	
-//	@Query("FROM product WHERE quantity > 0")
-//	public List<Product> getAvailableProducts();
+//	@Query("FROM products WHERE quantity > 0")
+//	public List<Product> getAvailable();
 //	
 //	public Product updateProduct(Product product);
 	

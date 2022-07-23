@@ -28,10 +28,9 @@ public class ProductController {
 		return productService.findAll();
 	}
 	
-	
-//	@GetMapping("available")
-//	public List<Product> getAllAvailableProducts(){
-//		return productService.getAvailable();
+//	@GetMapping
+//	public Product findBySku(Long sku) {
+//		return productService.findBySku(sku);
 //	}
 	
 	@PutMapping
