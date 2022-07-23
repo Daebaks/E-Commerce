@@ -11,7 +11,7 @@ function populateInStock(available) {
         <h2>Name: ${p.name}</h2>
         <h2>Price: ${p.unitprice}</h2>
         <h2>Quantity in stock: ${p.quantity}</h2>
-        <button id="add-to-cart">Add to cart</button>
+        <button id="add-to-cart" value="${p.sku}" onclick="addToCart(this.value)">Add to cart</button>
         `;
 
     divAvailable.setAttribute("class", "product");
@@ -67,4 +67,11 @@ function toggleOutOfStock() {
   } else {
     container.style.display = "none";
   }
+}
+
+/** add to cart **/
+//e -> the product sku
+//getting the current userid from session
+function addToCart(e) {
+  console.log(e);
 }
