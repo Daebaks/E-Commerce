@@ -81,7 +81,7 @@
       Contact Us &#128522;
     </button>
     <div class="chat-popup" id="myForm">
-      <form action="/action_page.php" class="form-container">
+      <form class="form-container">
         <h1>Chat with staff!</h1>
 
         <label><b>Message</b></label>
@@ -90,7 +90,7 @@
           name="msg"
           required
         ></textarea>
-        <button type="submit" class="btn">Send</button>
+        <button type="submit" class="btn" onclick="sentAlert()">Send</button>
         <button type="button" class="btn cancel" onclick="closeForm()">
           Close
         </button>
