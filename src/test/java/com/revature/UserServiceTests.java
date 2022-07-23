@@ -27,6 +27,9 @@ class UserServiceTests {
 
 	@After
 	void tearDown() {
+		us = null;
+		mockUr = null;
+		dummyUser = null;
 	}
 
 	@Test

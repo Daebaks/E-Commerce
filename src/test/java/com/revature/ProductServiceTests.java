@@ -30,8 +30,8 @@ class ProductServiceTests {
 	@After
 	void tearDown() {
 		ps = null;
-		dummyProduct = null;
 		mockPr = null;
+		dummyProduct = null;
 	}
 
 	@Test
