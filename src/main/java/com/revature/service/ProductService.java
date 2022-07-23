@@ -31,6 +31,11 @@ public class ProductService {
 	public Product update(Product product) {
 		return productRepository.save(product);
 	}
+
+
+//	public List<Product> getAvailable() {
+//		return productRepository.getAvailable();
+//	}
 	
 
 }
