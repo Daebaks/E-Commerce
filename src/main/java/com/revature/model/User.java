@@ -1,24 +1,16 @@
 package com.revature.model;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
-import javax.persistence.JoinColumn;
 import org.hibernate.validator.constraints.Length;
 
 import lombok.AllArgsConstructor;
@@ -47,7 +39,9 @@ public class User {
 
 	@Email
 	private String email;
-
+	
+	@ManyToMany
+	private List<Product> cart;
 	
 	public User(@NotBlank @Length(min = 5) @Pattern(regexp = "[a-zA-Z][a-zA-Z0-9]*") String username,
 			@NotBlank String password, @Email String email) {
@@ -56,5 +50,16 @@ public class User {
 		this.password = password;
 		this.email = email;
 	}
+
+	public User(@NotBlank @Length(min = 5) @Pattern(regexp = "[a-zA-Z][a-zA-Z0-9]*") String username,
+			@NotBlank String password, @Email String email, List<Product> cart) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.cart = cart;
+	}
+	
+	
 
 }

@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.model.User;
@@ -31,8 +31,7 @@ public class UserController {
 	public ResponseEntity<User> login(@RequestBody LoginObj loginObj) {
 		User u = us.login(loginObj.username, loginObj.password);
 		if (u == null) {
-//			return new ResponseEntity<User>(u, HttpStatus.NO_CONTENT);
-			return null;
+			return new ResponseEntity<User>(u, HttpStatus.NO_CONTENT);
 		}
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("id", String.valueOf(u.getId()));
@@ -59,6 +58,13 @@ public class UserController {
 	public boolean deleteUser(@RequestBody User u) {
 		return us.delete(u.getId());
 	}
+	
+	@PostMapping("addtocart/{sku}")
+	public User addToCart(@PathVariable("sku") Long sku, @RequestHeader("user_id") int id) {
+		User u = us.addToCart(id, sku);
+		return u;
+	}
+	
 }
 class LoginObj {
 	public String username;
