@@ -47,6 +47,7 @@ body {
 }
 
 #nav_bar {
+  border-bottom: 1.5px solid rgb(33, 37, 38);
   top: 0;
   z-index: 1;
   position: fixed;
@@ -54,6 +55,7 @@ body {
   text-align: right;
   background-color: #d1dddf;
   padding-top: 12px;
+  padding-bottom: 12px;
 }
 #nav_bar h1 {
   float: left;
@@ -87,11 +89,6 @@ body {
 }
 .nav_bar_cart:hover {
   background-color: #444747;
-}
-#nav-line {
-  /* background-color: #6098d1; */
-  margin-top: 10px;
-  padding: 0;
 }
 
 /* Button used to open the chat form - fixed at the bottom of the page */
@@ -172,6 +169,7 @@ body {
 
 /* footer */
 .footer {
+  border-top: 1.5px solid rgb(33, 37, 38);
   background: #d1dddf;
   color: rgb(41, 34, 34);
   text-align: center;

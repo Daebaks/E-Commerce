@@ -128,8 +128,6 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 		List<Product> cart = u.getCart();
 		cart.add(p);
 		u.setCart(cart);
-		p.setQuantity(p.getQuantity()-1);
-		productRepo.save(p);
 		userRepo.save(u);
 		return u;
 	}
@@ -140,8 +138,6 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 		List<Product> cart = u.getCart();
 		cart.remove(p);
 		u.setCart(cart);
-		p.setQuantity(p.getQuantity()+1);
-		productRepo.save(p);
 		userRepo.save(u);
 		return u;
 	}

@@ -3,27 +3,12 @@
   <head>
     <title>Reva-Mart</title>
     <meta charset="utf-8" />
-    <!-- test -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/agax/libs/normalize/7.0.0/normalize.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/agax/libs/font-awesome/5.11.2/css/all.css"
-      integrity="sha256-46qynGAKLSFpVbEBog43gvNhfr0j+BmwXdxFgVK/Kvc="
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="styles/styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap"
-      rel="stylesheet"
-    />
+
     <script
       src="https://kit.fontawesome.com/c407725163.js"
       crossorigin="anonymous"
     ></script>
-    <!-- test -->
+
     <link
       rel="icon"
       href="../assets/favicon.png"
@@ -36,7 +21,7 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
     />
-    <script src="../js/products.js"></script>
+
     <script src="../js/global.js"></script>
   </head>
   <body>
@@ -49,9 +34,14 @@
       <a class="nav_bar_cart" href="cart.html"
         ><i class="fa fa-shopping-cart"></i
       ></a>
-      <hr id="nav-line" />
     </nav>
 
+    <section id="products">
+      <h1 id="in-stock-header">Shop from available products</h1>
+      <div id="in-stock-container"></div>
+      <button onclick="toggleOutOfStock()">Toggle Out Of Stock</button>
+      <div id="out-ofstock-container"></div>
+    </section>
     <!-- chat button/form -->
     <button class="open-button" onclick="openForm()">
       Contact Us &#128522;
@@ -74,7 +64,6 @@
     </div>
 
     <footer class="footer">
-      <hr id="footer-line" />
       <a href="mailto:reva-mart@store.com" class="footer__link"
         >reva-mart@store.com</a
       >
@@ -95,5 +84,6 @@
         </li>
       </ul>
     </footer>
+    <script src="../js/products.js"></script>
   </body>
 </html>
