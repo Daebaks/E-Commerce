@@ -1,11 +1,12 @@
 package com.revature;
 
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.util.LinkedList;
-import java.util.List;
-
+import java.util.Random;
+import org.junit.Assert;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
@@ -26,7 +27,7 @@ class UserServiceTests {
 		us = new UserService();
 		mockUr = mock(UserRepository.class);
 		dummyUser = new User();
-		dummyUser.setCart(new LinkedList()<Product>());
+		dummyUser.setCart(new LinkedList<Product>());
 		dummyUser.setId(0);
 	}
 
@@ -38,10 +39,15 @@ class UserServiceTests {
 	}
 
 	@Test
-	void test() {
+	void testAddUserReturnsNewPKId() {
 		dummyUser = new User(0, "toddjones", "password1", "tjones@me.com", new LinkedList<Product>());
+		Random r = new Random();
+		int fakePK = r.nextInt(100);
 		
-		fail("Not yet implemented");
+		when(mockUr.insert(dummyUser)).thenReturn(fakePK);
+		User registerUser = us.add(dummyUser);
+		
+		assertEquals(registerUser.getId(), fakePK);
 	}
 
 }
