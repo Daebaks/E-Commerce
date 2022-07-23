@@ -49,7 +49,7 @@ public class User {
 	private String email;
 	
 	@ManyToMany
-	private List<Product> products;
+	private List<Product> cart;
 	
 	public User(@NotBlank @Length(min = 5) @Pattern(regexp = "[a-zA-Z][a-zA-Z0-9]*") String username,
 			@NotBlank String password, @Email String email) {
@@ -60,12 +60,12 @@ public class User {
 	}
 
 	public User(@NotBlank @Length(min = 5) @Pattern(regexp = "[a-zA-Z][a-zA-Z0-9]*") String username,
-			@NotBlank String password, @Email String email, List<Product> products) {
+			@NotBlank String password, @Email String email, List<Product> cart) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.email = email;
-		this.products = products;
+		this.cart = cart;
 	}
 	
 	
