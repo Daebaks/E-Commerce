@@ -33,12 +33,6 @@ public class ProductController {
 //		return productService.findBySku(sku);
 //	}
 	
-	
-//	@GetMapping("available")
-//	public List<Product> getAllAvailableProducts(){
-//		return productService.getAvailable();
-//	}
-	
 	@PutMapping
 	public Product updateProduct(@RequestBody Product product) {
 		return productService.update(product);
