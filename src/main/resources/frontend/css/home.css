@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css2?family=El+Messiri:wght@500&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0.5px;
+  font-family: "El Messiri", sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  width: 100%;
+}
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  margin-top: 150px;
+  line-height: 1.6;
+  padding: 0.12%;
+  background-color: rgb(196, 224, 238);
+}
+
+/**styling scrollbar*/
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 15px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(114, 116, 102);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #333232;
+}
+
+#nav_bar {
+  top: 0;
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  text-align: right;
+  background-color: #d1dddf;
+  padding-top: 12px;
+}
+#nav_bar h1 {
+  float: left;
+  font-size: 2em;
+  text-shadow: 2.2px 2.2px 30px;
+  color: #444747;
+}
+.nav_bar_link {
+  color: white;
+  text-decoration: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #429bf5;
+  border: solid #eab3cd;
+  border-radius: 9px;
+  font-size: 2em;
+}
+.nav_bar_link:hover {
+  background-color: #444747;
+}
+.nav_bar_cart {
+  font-size: 2.2em;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #429bf5;
+  border: solid #ff0000;
+  border-radius: 9px;
+  margin-right: 15px;
+}
+.nav_bar_cart:hover {
+  background-color: #444747;
+}
+#nav-line {
+  /* background-color: #6098d1; */
+  margin-top: 10px;
+  padding: 0;
+}
+
+/* intro section */
+#intro {
+  color: #2a4a57;
+  text-align: center;
+  font-size: 2em;
+  font-style: italic;
+}
+
+/* footer {
+  font-size: 1.3em;
+  font-weight: bold;
+  text-align: center;
+
+  color: #01586e;
+} */
+
+.autoslider {
+  width: 90%;
+  height: 600px;
+  margin: 50px auto;
+  border: 2.5px solid rgb(233, 196, 31);
+  border-radius: 35px;
+  box-shadow: 0px 0px 20px 5px grey;
+  overflow: hidden;
+}
+
+.autoslider figure img {
+  width: 20%;
+  height: 600px;
+  float: left;
+}
+
+.autoslider figure {
+  position: relative;
+  width: 500%;
+  margin: 0px;
+  left: 0px;
+  animation: moves 10s infinite linear;
+}
+
+@keyframes moves {
+  0% {
+    left: 0%;
+  }
+  15% {
+    left: -100%;
+  }
+  20% {
+    left: -100%;
+  }
+  35% {
+    left: -200%;
+  }
+  40% {
+    left: -200%;
+  }
+  100% {
+    left: -300%;
+  }
+  65% {
+    left: -300%;
+  }
+  80% {
+    left: -300%;
+  }
+  85% {
+    left: -300%;
+  }
+  100% {
+    left: -300%;
+  }
+}
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+  background-color: #3279a8;
+  color: white;
+  padding: 16px 20px;
+  border: solid #eab3cd;
+  border-radius: 25px;
+  cursor: pointer;
+  opacity: 0.9;
+  position: fixed;
+  bottom: 10px;
+  right: 28px;
+  width: 280px;
+  font-size: 1.3em;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: #82afba;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #bccbcc;
+  resize: none;
+  min-height: 200px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+  opacity: 0.8;
+  border-radius: 20px;
+  font-size: 1.3em;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: #a62929;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover,
+.open-button:hover {
+  opacity: 1;
+}
