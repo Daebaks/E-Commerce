@@ -6,7 +6,7 @@ import static org.mockito.Mockito.when;
 
 import java.util.LinkedList;
 import java.util.Random;
-import org.junit.Assert;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
@@ -41,6 +41,7 @@ class UserServiceTests {
 	@Test
 	void testAddUserReturnsNewPKId() {
 		dummyUser = new User(0, "toddjones", "password1", "tjones@me.com", new LinkedList<Product>());
+		
 		Random r = new Random();
 		int fakePK = r.nextInt(100);
 		
@@ -48,6 +49,20 @@ class UserServiceTests {
 		User registerUser = us.add(dummyUser);
 		
 		assertEquals(registerUser.getId(), fakePK);
+	}
+	
+	@Test
+	void testLoginReturnUser() {
+		dummyUser = new User(0, "toddjones", "password1", "tjones@me.com", new LinkedList<Product>());
+		
+		String username = "toddjones";
+		String password = "password1";
+		
+		when(mockUr.getByUsername(username)).thenReturn(dummyUser);
+		
+		User loggeUser = us.login(username, password);
+		
+		assertEquals(loggeUser.getUsername(), username);
 	}
 
 }
