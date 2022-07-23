@@ -9,11 +9,11 @@ import org.junit.jupiter.api.Test;
 class UserServiceTests {
 
 	@Before
-	static void setUpBeforeClass() throws Exception {
+	static void setUp() throws Exception {
 	}
 
 	@After
-	static void tearDownAfterClass() throws Exception {
+	static void tearDown() throws Exception {
 	}
 
 	@Test
