@@ -25,17 +25,18 @@ let postLogin = async () => {
   });
 
   let res = await req.json();
+  console.log(res);
+
+  sessionStorage.setItem("id", `${res.id}`);
+  sessionStorage.setItem("username", `${res.username}`);
   if (!res.id || !res.username) {
     alert("Try again, failed login!!");
     window.location.href = "login.html";
+  } else {
+    alert("Successfully logged-in");
+    console.log(sessionStorage.getItem("id"));
+    window.location.href = "products.html";
   }
-  sessionStorage.setItem("id", `${res.id}`);
-  sessionStorage.setItem("username", `${res.username}`);
-
-  console.log(res);
-  alert("Successfully logged-in");
-  console.log(sessionStorage.getItem("id"));
-  window.location.href = "products.html";
 };
 
 let postRegister = async () => {
@@ -65,8 +66,6 @@ let postRegister = async () => {
   console.log(res);
 
   console.log(sessionStorage.getItem("id"));
-  alert("Successfully Registered");
-  window.location.href = "home.html";
 };
 
 function submitLogin(event) {

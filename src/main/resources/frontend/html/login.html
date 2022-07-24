@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Reva-Mart</title>
+    <title>Reva-Mart | Login</title>
     <meta charset="utf-8" />
     <script
       src="https://kit.fontawesome.com/c407725163.js"
@@ -19,7 +19,6 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
     />
-
     <script src="../js/global.js"></script>
   </head>
   <body>
@@ -50,16 +49,19 @@
             id="login-password"
             type="password"
             name="login-password"
-            minlength="8"
+            minlength="3"
             required
           />
-          <input type="submit" value="login" />
+          <input type="submit" value="login" id="submit" />
         </form>
       </div>
 
       <div id="register">
-        <button onclick="toggleForm()">Not a member? Register Now!</button>
+        <button id="submit" onclick="toggleForm()">
+          Not a member? Register Now!
+        </button>
         <form id="register-form" hidden>
+          <h1>Register Below</h1>
           <label for="username">Username: </label>
           <input id="username" type="text" name="username" maxlength="50" />
           <label for="password">Password: </label>
@@ -67,12 +69,12 @@
             id="password"
             type="password"
             name="password"
-            minlength="8"
+            minlength="3"
             required
           />
           <label for="email">Email: </label>
           <input id="email" type="email" name="email" maxlength="50" />
-          <input type="submit" value="Update" />
+          <input type="submit" value="Sign Up" id="submit" />
         </form>
       </div>
       <div id="user"></div>

@@ -2,7 +2,7 @@ let products;
 let cartContainer = document.getElementById("cart-container");
 let loggedUserId = sessionStorage.getItem("id");
 const URL = "http://localhost:8080";
-if (!loggedUserId) {
+if (loggedUserId == "undefined" || loggedUserId == null || !loggedUserId) {
   window.location.href = "login.html";
   alert("Log-in first to view your cart!!");
 }
