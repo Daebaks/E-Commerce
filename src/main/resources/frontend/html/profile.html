@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Reva-Mart | Login</title>
+    <title>Reva-Mart | Profile</title>
     <meta charset="utf-8" />
     <script
       src="https://kit.fontawesome.com/c407725163.js"
@@ -13,13 +13,13 @@
       type="image/gif"
       sizes="16x16"
     />
-    <link rel="stylesheet" href="../css/login.css" type="text/css" />
+    <link rel="stylesheet" href="../css/profile.css" type="text/css" />
     <link rel="stylesheet" href="../css/global.css" type="text/css" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
     />
-
+    <script src="../js/profile.js"></script>
     <script src="../js/global.js"></script>
   </head>
   <body>
@@ -33,53 +33,6 @@
         ><i class="fa fa-shopping-cart"></i
       ></a>
     </nav>
-
-    <div class="main" style="margin-top: 100px; align-items: center">
-      <div id="login">
-        <h1>Please Login Below</h1>
-        <form id="login-form">
-          <label for="login-username">Username: </label>
-          <input
-            id="login-username"
-            type="text"
-            name="login-username"
-            maxlength="50"
-          />
-          <label for="login-password">Password: </label>
-          <input
-            id="login-password"
-            type="password"
-            name="login-password"
-            minlength="3"
-            required
-          />
-          <input type="submit" value="login" id="submit" />
-        </form>
-      </div>
-
-      <div id="register">
-        <button id="submit" onclick="toggleForm()">
-          Not a member? Register Now!
-        </button>
-        <form id="register-form" hidden>
-          <h1>Register Below</h1>
-          <label for="username">Username: </label>
-          <input id="username" type="text" name="username" maxlength="50" />
-          <label for="password">Password: </label>
-          <input
-            id="password"
-            type="password"
-            name="password"
-            minlength="3"
-            required
-          />
-          <label for="email">Email: </label>
-          <input id="email" type="email" name="email" maxlength="50" />
-          <input type="submit" value="Sign Up" id="submit" />
-        </form>
-      </div>
-      <div id="user"></div>
-    </div>
 
     <!-- chat button/form -->
     <button class="open-button" onclick="openForm()">
@@ -123,6 +76,8 @@
         </li>
       </ul>
     </footer>
-    <script src="../js/login.js"></script>
+    <script src="../js/profile.js"></script>
+  </body>
+</html>
   </body>
 </html>
