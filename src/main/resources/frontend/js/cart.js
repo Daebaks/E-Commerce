@@ -48,6 +48,10 @@ let removeFromCart = async (e) => {
 
 /** checkout/place order */
 let checkOut = async () => {
+  if (products == "") {
+    window.location.href = "products.html";
+    alert("Add items first!!!");
+  }
   for (p of products) {
     let amount = document.getElementById(p.sku).value;
     let newQuantity = p.quantity - amount;
