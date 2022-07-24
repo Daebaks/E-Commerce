@@ -73,5 +73,7 @@ function toggleOutOfStock() {
 //e -> the product sku
 //getting the current userid from session
 function addToCart(e) {
-  console.log(e);
+  let sku = e;
+  let userid = sessionStorage.getItem("id");
+  console.log(userid, sku);
 }

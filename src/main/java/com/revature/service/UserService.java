@@ -142,5 +142,9 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 		return u;
 	}
 	
+	public List<Product> getCartItems( int id){
+		User u = userRepo.getReferenceById(id);
+		return u.getCart();
+	}
 	
 }
