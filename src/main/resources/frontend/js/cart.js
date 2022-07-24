@@ -11,12 +11,22 @@ function fillCart(products) {
     let divCart = document.createElement("div");
 
     divCart.innerHTML = `
+        
+            <div class="the-text">
         <h2>Category: ${p.category}</h2>
         <h2>Name: ${p.name}</h2>
         <h2>Price: ${p.unitprice}</h2>
-        <img src="${p.path}" alt="product_img"/>
-        Quantity<input type="number" id="${p.sku}"  min="1" max="${p.quantity}"/><br/>
+        </div>
+            <div class="the-image">
+        <img src="${p.path}" alt="product_img" width="150" height="120"/>
+        </div>
+            <div class="the-amount">
+        Quantity<input type="number" id="${p.sku}"  min="1" max="${p.quantity}"/>
+        </div>
+            <div class="the-button">
         <button id="add-to-cart" value="${p.sku}" onclick="removeFromCart(this.value)">Remove from cart</button>
+        </div>
+        
         `;
 
     divCart.setAttribute("class", "product");
