@@ -59,10 +59,10 @@ class UserServiceTests {
 		
 		when(mockUr.getByUsername(username)).thenReturn(dummyUser);
 		
-		User loggeUser = us.login(username, password);
+		User loggedUser = us.login(username, password);
 		
-		assertEquals(loggeUser.getUsername(), username);
-
+		assertEquals(loggedUser.getUsername(), username);
 	}
 
+	
 }
