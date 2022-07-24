@@ -1,5 +1,6 @@
 package com.revature.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -147,4 +148,10 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 		return u.getCart();
 	}
 	
+	public User clearCart(int id) {
+		User u = userRepo.getReferenceById(id);
+		u.setCart(new ArrayList<>());
+		userRepo.save(u);
+		return u;
+	}
 }
