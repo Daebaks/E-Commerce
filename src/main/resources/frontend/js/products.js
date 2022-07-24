@@ -11,6 +11,7 @@ function populateInStock(available) {
         <h2>Name: ${p.name}</h2>
         <h2>Price: ${p.unitprice}</h2>
         <h2>Quantity in stock: ${p.quantity}</h2>
+        <img src="${p.path}" alt="product_img"/>
         <button id="add-to-cart" value="${p.sku}" onclick="addToCart(this.value)">Add to cart</button>
         `;
 
@@ -40,6 +41,7 @@ function populateOutOfStock(sold) {
         <h2>Name: ${p.name}</h2>
         <h2>Price: ${p.unitprice}</h2>
         <h2>Quantity in stock: ${p.quantity}</h2>
+        <img src="${p.path}" alt="product_img"/>
          `;
 
     divSold.setAttribute("class", "product");

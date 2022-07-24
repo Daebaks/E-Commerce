@@ -36,13 +36,17 @@ public class Product {
 	
 	@Column(name = "quantity")
 	private int quantity;
-
-	public Product(@NotBlank String name, Double unitprice, String category, int quantity) {
+	
+	@Column(name = "image")
+	private String path;
+	
+	public Product(@NotBlank String name, Double unitprice, String category, int quantity, String path) {
 		super();
 		this.name = name;
 		this.unitprice = unitprice;
 		this.category = category;
 		this.quantity = quantity;
+		this.path = path;
 	}
 	
 	 

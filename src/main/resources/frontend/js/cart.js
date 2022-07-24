@@ -2,7 +2,10 @@ let products;
 let cartContainer = document.getElementById("cart-container");
 let loggedUserId = sessionStorage.getItem("id");
 const URL = "http://localhost:8080";
-
+if (!loggedUserId) {
+  window.location.href = "login.html";
+  alert("Log-in first to view your cart!!");
+}
 function fillCart(products) {
   for (p of products) {
     let divCart = document.createElement("div");
@@ -11,6 +14,7 @@ function fillCart(products) {
         <h2>Category: ${p.category}</h2>
         <h2>Name: ${p.name}</h2>
         <h2>Price: ${p.unitprice}</h2>
+        <img src="${p.path}" alt="product_img"/>
         Quantity<input type="number" id="${p.sku}"  min="1" max="${p.quantity}"/><br/>
         <button id="add-to-cart" value="${p.sku}" onclick="removeFromCart(this.value)">Remove from cart</button>
         `;
@@ -21,10 +25,6 @@ function fillCart(products) {
 }
 
 (async () => {
-  if (loggedUserId == null) {
-    window.location.href = "login.html";
-    alert("Log-in first to view your cart!!");
-  }
   let req = await fetch(`${URL}/users/cart/${loggedUserId}`);
   let res = await req.json();
   products = res;
@@ -61,6 +61,7 @@ let checkOut = async () => {
       name: p.name,
       quantity: newQuantity,
       unitprice: p.unitprice,
+      path: p.path,
     };
 
     let req = await fetch(`http://localhost:8080/products`, {
