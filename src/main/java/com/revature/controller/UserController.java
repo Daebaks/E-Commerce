@@ -1,5 +1,7 @@
 package com.revature.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.model.Product;
 import com.revature.model.User;
 import com.revature.service.UserService;
 
@@ -60,17 +63,21 @@ public class UserController {
 	}
 	
 	@PostMapping("addtocart/{sku}")
-	public User addToCart(@PathVariable("sku") Long sku, @RequestHeader("user_id") int id) {
+	public ResponseEntity<User> addToCart(@PathVariable("sku") Long sku, @RequestHeader("user_id") int id) {
 		User u = us.addToCart(id, sku);
-		return u;
+		return new ResponseEntity<User>(u, HttpStatus.OK);
 	}
 	
 	@PostMapping("removefromcart/{sku}")
-	public User removeFromCart(@PathVariable("sku") Long sku, @RequestHeader("user_id") int id) {
+	public ResponseEntity<User> removeFromCart(@PathVariable("sku") Long sku, @RequestHeader("user_id") int id) {
 		User u = us.removeFromCart(id, sku);
-		return u;
+		return new ResponseEntity<User>(u, HttpStatus.OK);
 	}
 	
+	@GetMapping("cart/{id}")
+	public List<Product> getCartList(@PathVariable("id") int id){
+		 return us.getCartItems(id);
+	}
 }
 class LoginObj {
 	public String username;
