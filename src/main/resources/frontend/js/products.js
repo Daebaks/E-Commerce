@@ -72,8 +72,21 @@ function toggleOutOfStock() {
 /** add to cart **/
 //e -> the product sku
 //getting the current userid from session
-function addToCart(e) {
+
+let addToCart = async (e) => {
   let sku = e;
-  let userid = sessionStorage.getItem("id");
-  console.log(userid, sku);
-}
+  let id = sessionStorage.getItem("id");
+
+  if (id == null) {
+    window.location.href = "login.html";
+    alert("Please login first!!!");
+  }
+
+  let req = await fetch(`http://localhost:8080/users/addtocart/${sku}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", user_id: `${id}` },
+  });
+  let res = await req.json();
+  console.log(res);
+  // location.reload();
+};
