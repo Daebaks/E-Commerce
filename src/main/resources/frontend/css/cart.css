@@ -36,6 +36,16 @@
   color: #010101;
 }
 
+.order-button {
+  background-color: #6a6c70;
+  font-size: 20px;
+  border-radius: 20px;
+  border-color: rgb(255, 255, 255);
+  border-width: 4px;
+  padding: 12px;
+  color: #ffffff;
+}
+
 /* building the grid */
 .product {
   display: grid;
@@ -45,8 +55,7 @@
   box-shadow: 0 -1px 5px 3px #01454b;
   border-radius: 10px;
   text-align: center;
-  grid-gap: 75px;
-  row-gap: 50px;
+  column-gap: 100px;
   grid-template-columns: 150px 150px;
   grid-template-areas:
     "the-image the-text the-amount"
@@ -65,4 +74,17 @@
 }
 .the-button {
   grid-area: the-button;
+}
+
+/*styling amount +/-*/
+.counter {
+  background-color: #ccff79;
+  font-size: 25px;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  caret-color: transparent;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  opacity: 1;
 }

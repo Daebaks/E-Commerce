@@ -6,6 +6,7 @@ if (!loggedUserId) {
   window.location.href = "login.html";
   alert("Log-in first to view your cart!!");
 }
+// Quantity<input type="number" id="${p.sku}"  min="1" max="${p.quantity}"/>
 function fillCart(products) {
   for (p of products) {
     let divCart = document.createElement("div");
@@ -18,15 +19,15 @@ function fillCart(products) {
         <h2>Price: ${p.unitprice}</h2>
         </div>
             <div class="the-image">
-        <img src="${p.path}" alt="product_img" width="150" height="120"/>
+        <img src="${p.path}" alt="product_img" width="150" height="150"/>
         </div>
             <div class="the-amount">
-        Quantity<input type="number" id="${p.sku}"  min="1" max="${p.quantity}"/>
+            <h2>Quantity</h2><br/>
+         <input class="counter" type="number" id="${p.sku}" value="1" step="1"  min="1" max="${p.quantity}" onKeyDown="return false"/>
         </div>
             <div class="the-button">
         <button id="add-to-cart" value="${p.sku}" onclick="removeFromCart(this.value)">Remove from cart</button>
         </div>
-        
         `;
 
     divCart.setAttribute("class", "product");
@@ -65,6 +66,7 @@ let checkOut = async () => {
   for (p of products) {
     let amount = document.getElementById(p.sku).value;
     let newQuantity = p.quantity - amount;
+    console.log(amount);
     let updateObj = {
       sku: p.sku,
       category: p.category,
