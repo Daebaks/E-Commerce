@@ -17,7 +17,7 @@
 }
 
 #out-ofstock-container {
-  display: inline-flex;
+  display: none;
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
