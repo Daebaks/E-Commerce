@@ -7,11 +7,11 @@ function populateInStock(available) {
     let divAvailable = document.createElement("div");
 
     divAvailable.innerHTML = `
+    <img src="${p.path}" alt="product_img" width="350" height="350"/>
         <h2>Category: ${p.category}</h2>
         <h2>Name: ${p.name}</h2>
         <h2>Price: ${p.unitprice}</h2>
         <h2>Quantity in stock: ${p.quantity}</h2>
-        <img src="${p.path}" alt="product_img"/>
         <button id="add-to-cart" value="${p.sku}" onclick="addToCart(this.value)">Add to cart</button>
         `;
 
@@ -37,11 +37,12 @@ function populateOutOfStock(sold) {
     let divSold = document.createElement("div");
 
     divSold.innerHTML = `
+    <img src="${p.path}" alt="product_img" width="350" height="350"/>
         <h2>Category: ${p.category}</h2>
         <h2>Name: ${p.name}</h2>
         <h2>Price: ${p.unitprice}</h2>
         <h2>Quantity in stock: ${p.quantity}</h2>
-        <img src="${p.path}" alt="product_img"/>
+        
          `;
 
     divSold.setAttribute("class", "product");
@@ -79,7 +80,7 @@ let addToCart = async (e) => {
   let sku = e;
   let id = sessionStorage.getItem("id");
 
-  if (id == null) {
+  if (!id) {
     window.location.href = "login.html";
     alert("Please login first!!!");
   }
@@ -90,5 +91,5 @@ let addToCart = async (e) => {
   });
   let res = await req.json();
   console.log(res);
-  // location.reload();
+  alert("added item");
 };
