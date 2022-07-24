@@ -10,15 +10,81 @@
 }
 
 #cart-container {
-  display: inline-flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
 
+.product h2 {
+  font-size: 21px;
+}
+
+.product img {
+  border-radius: 12px;
+  box-shadow: 0 -1px 5px 3px #01454b;
+}
+
+.product button {
+  background-color: #d3df52;
+  font-size: 20px;
+  border-radius: 20px;
+  border-color: rgb(255, 255, 255);
+  border-width: 4px;
+  padding: 7px;
+  color: #010101;
+}
+
+.order-button {
+  background-color: #6a6c70;
+  font-size: 20px;
+  border-radius: 20px;
+  border-color: rgb(255, 255, 255);
+  border-width: 4px;
+  padding: 12px;
+  color: #ffffff;
+}
+
+/* building the grid */
 .product {
-  margin: 50px;
+  display: grid;
   border: solid black 2px;
+  background-color: #2a2424;
+  color: rgb(255, 255, 255);
+  box-shadow: 0 -1px 5px 3px #01454b;
   border-radius: 10px;
   text-align: center;
+  column-gap: 100px;
+  grid-template-columns: 150px 150px;
+  grid-template-areas:
+    "the-image the-text the-amount"
+    "the-image the-text the-button";
+}
+
+.the-image {
+  grid-area: the-image;
+}
+.the-text {
+  grid-area: the-text;
+  min-width: 200px;
+}
+.the-amount {
+  grid-area: the-amount;
+}
+.the-button {
+  grid-area: the-button;
+}
+
+/*styling amount +/-*/
+.counter {
+  background-color: #ccff79;
+  font-size: 25px;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  caret-color: transparent;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  opacity: 1;
 }

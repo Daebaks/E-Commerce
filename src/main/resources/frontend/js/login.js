@@ -25,7 +25,10 @@ let postLogin = async () => {
   });
 
   let res = await req.json();
-
+  if (!res.id || !res.username) {
+    alert("Try again, failed login!!");
+    window.location.href = "login.html";
+  }
   sessionStorage.setItem("id", `${res.id}`);
   sessionStorage.setItem("username", `${res.username}`);
 

@@ -2,17 +2,32 @@ let products;
 let cartContainer = document.getElementById("cart-container");
 let loggedUserId = sessionStorage.getItem("id");
 const URL = "http://localhost:8080";
-
+if (!loggedUserId) {
+  window.location.href = "login.html";
+  alert("Log-in first to view your cart!!");
+}
+// Quantity<input type="number" id="${p.sku}"  min="1" max="${p.quantity}"/>
 function fillCart(products) {
   for (p of products) {
     let divCart = document.createElement("div");
 
     divCart.innerHTML = `
+        
+            <div class="the-text">
         <h2>Category: ${p.category}</h2>
         <h2>Name: ${p.name}</h2>
         <h2>Price: ${p.unitprice}</h2>
-        Quantity<input type="number" id="${p.sku}"  min="1" max="${p.quantity}"/><br/>
+        </div>
+            <div class="the-image">
+        <img src="${p.path}" alt="product_img" width="150" height="150"/>
+        </div>
+            <div class="the-amount">
+            <h2>Quantity</h2><br/>
+         <input class="counter" type="number" id="${p.sku}" value="1" step="1"  min="1" max="${p.quantity}" onKeyDown="return false"/>
+        </div>
+            <div class="the-button">
         <button id="add-to-cart" value="${p.sku}" onclick="removeFromCart(this.value)">Remove from cart</button>
+        </div>
         `;
 
     divCart.setAttribute("class", "product");
@@ -21,10 +36,6 @@ function fillCart(products) {
 }
 
 (async () => {
-  if (loggedUserId == null) {
-    window.location.href = "login.html";
-    alert("Log-in first to view your cart!!");
-  }
   let req = await fetch(`${URL}/users/cart/${loggedUserId}`);
   let res = await req.json();
   products = res;
@@ -55,12 +66,14 @@ let checkOut = async () => {
   for (p of products) {
     let amount = document.getElementById(p.sku).value;
     let newQuantity = p.quantity - amount;
+    console.log(amount);
     let updateObj = {
       sku: p.sku,
       category: p.category,
       name: p.name,
       quantity: newQuantity,
       unitprice: p.unitprice,
+      path: p.path,
     };
 
     let req = await fetch(`http://localhost:8080/products`, {
