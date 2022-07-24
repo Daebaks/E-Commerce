@@ -8,8 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revature.data.ProductRepository;
-import com.revature.model.Product;
+import com.revature.repository.ProductRepository;
+import com.revature.model.entity.Product;
 
 @Service
 public class ProductService {
@@ -25,7 +25,7 @@ public class ProductService {
 	
 	
 	public Product findBySku(Long sku) {
-		return productRepository.getReferenceById(sku);
+		return productRepository.getReferenceBySku(sku);
 	}
 
 

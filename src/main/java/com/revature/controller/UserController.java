@@ -1,9 +1,10 @@
 package com.revature.controller;
 
+import com.revature.model.dto.UserResponse;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,64 +16,52 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.model.User;
+import com.revature.model.entity.User;
 import com.revature.service.UserService;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("users") // -> localhost:8080/users
 @CrossOrigin("*")
 public class UserController {
 
+	private final UserService userService;
+
 	@Autowired
-	UserService us;
-
-	// Login
-	@PostMapping("login")
-	public ResponseEntity<User> login(@RequestBody LoginObj loginObj) {
-		User u = us.login(loginObj.username, loginObj.password);
-		if (u == null) {
-			return new ResponseEntity<User>(u, HttpStatus.NO_CONTENT);
-		}
-		HttpHeaders headers = new HttpHeaders();
-		headers.set("id", String.valueOf(u.getId()));
-		return new ResponseEntity<User>(u, headers, HttpStatus.OK);
+	public UserController(UserService userService) {
+		this.userService = userService;
 	}
 
-	// Get by Username
-	@GetMapping("{username}") // -> localhost:8080/users/bserfozo -> pull info for user with username bserfozo
-	public User getUser(@PathVariable("username") String username) {
-		return us.getByUsername(username);
+	@Operation(summary = "Retrieve currently authenticated user", security = { @SecurityRequirement(name = "bearer-token") })
+	@GetMapping(value = "/me", produces = MediaType.APPLICATION_JSON_VALUE)
+	public UserResponse getMe(HttpServletRequest httpServletRequest) {
+		Long userId = Long.valueOf(httpServletRequest.getUserPrincipal().getName());
+		return userService.getUserById(userId);
 	}
 
-	@PostMapping
-	public User createNewUser(@RequestBody User u) {
-		return us.add(u);
-	}
-
-	@PutMapping
-	public User updateUser(@RequestBody User u) {
-		return us.update(u);
-	}
-
+	@Operation(summary = "Delete currently authenticated user", security = { @SecurityRequirement(name = "bearer-token") })
 	@DeleteMapping
-	public boolean deleteUser(@RequestBody User u) {
-		return us.delete(u.getId());
+	public void deleteUser(HttpServletRequest httpServletRequest) {
+		Long userId = Long.valueOf(httpServletRequest.getUserPrincipal().getName());
+		userService.deleteById(userId);
 	}
-	
-	@PostMapping("addtocart/{sku}")
-	public User addToCart(@PathVariable("sku") Long sku, @RequestHeader("user_id") int id) {
-		User u = us.addToCart(id, sku);
+
+//	@PutMapping
+	public User updateUser(@RequestBody User u) {
+		return userService.update(u);
+	}
+
+//	@PostMapping("addtocart/{sku}")
+	public User addToCart(@PathVariable("sku") Long sku, @RequestHeader("user_id") Long id) {
+		User u = userService.addToCart(id, sku);
 		return u;
 	}
 	
-	@PostMapping("removefromcart/{sku}")
-	public User removeFromCart(@PathVariable("sku") Long sku, @RequestHeader("user_id") int id) {
-		User u = us.removeFromCart(id, sku);
+//	@PostMapping("removefromcart/{sku}")
+	public User removeFromCart(@PathVariable("sku") Long sku, @RequestHeader("user_id") Long id) {
+		User u = userService.removeFromCart(id, sku);
 		return u;
 	}
 	
-}
-class LoginObj {
-	public String username;
-	public String password;
 }

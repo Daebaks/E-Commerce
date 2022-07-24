@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.model.Product;
+import com.revature.model.entity.Product;
 import com.revature.service.ProductService;
 
-@RestController
+//@RestController
 @RequestMapping("products")
 @CrossOrigin("*")
 public class ProductController {
