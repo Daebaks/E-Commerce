@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Reva-Mart</title>
+    <meta charset="utf-8" />
+
+    <script
+      src="https://kit.fontawesome.com/c407725163.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      rel="icon"
+      href="../assets/favicon.png"
+      type="image/gif"
+      sizes="16x16"
+    />
+    <link rel="stylesheet" href="../css/cart.css" type="text/css" />
+    <link rel="stylesheet" href="../css/global.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+    />
+    <script src="../js/global.js"></script>
+  </head>
+  <body>
+    <nav id="nav_bar">
+      <a href="home.html"><h1>Reva-Mart</h1></a>
+      <a class="nav_bar_link" href="home.html">Home</a>
+      <a class="nav_bar_link" href="products.html">Products</a>
+      <a class="nav_bar_link" href="login.html">Sign in/up</a>
+      <a class="nav_bar_link" href="profile.html">Profile</a>
+      <a class="nav_bar_cart" href="cart.html"
+        ><i class="fa fa-shopping-cart"></i
+      ></a>
+    </nav>
+
+    <section id="products">
+      <h1 id="cart-header">This is your cart!</h1>
+      <div id="cart-container"></div>
+      <button onclick="checkOut()">Place order</button>
+    </section>
+
+
+    <!-- chat button/form -->
+    <button class="open-button" onclick="openForm()">
+      Contact Us &#128522;
+    </button>
+    <div class="chat-popup" id="myForm">
+      <form class="form-container">
+        <h1>Chat with staff!</h1>
+
+        <label><b>Message</b></label>
+        <textarea
+          placeholder="Type your message.."
+          name="msg"
+          required
+        ></textarea>
+        <button type="submit" class="btn" onclick="sentAlert()">Send</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">
+          Close
+        </button>
+      </form>
+    </div>
+
+    <footer class="footer">
+      <a href="mailto:reva-mart@store.com" class="footer__link"
+        >reva-mart@store.com</a
+      >
+      <ul class="social-list">
+        <li class="social-list__item">
+          <a
+            class="social-list__link"
+            target="blank_"
+            href="https://github.com/Daebaks/eCommerceP2"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+        <li class="social-list__item">
+          <a class="social-list__link" target="blank_" href="#">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </li>
+      </ul>
+    </footer>
+    <script src="../js/cart.js"></script>
+  </body>
+</html>
+  </body>
+</html>

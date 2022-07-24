@@ -74,6 +74,12 @@ public class UserController {
 		return new ResponseEntity<User>(u, HttpStatus.OK);
 	}
 	
+	@PutMapping("clear/{id}")
+	public ResponseEntity<User> clearCart(@PathVariable("id") int id) {
+		User u = us.clearCart(id);
+		return new ResponseEntity<User>(u, HttpStatus.OK);
+	}
+	
 	@GetMapping("cart/{id}")
 	public List<Product> getCartList(@PathVariable("id") int id){
 		 return us.getCartItems(id);
