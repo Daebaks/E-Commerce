@@ -38,31 +38,31 @@ class UserServiceTests {
 		dummyUser = null;
 	}
 
-	@Test
-	void testAddUserReturnsNewPKId() {
-		dummyUser = new User(0, "toddjones", "password1", "tjones@me.com", new LinkedList<Product>());
-		Random r = new Random();
-		int fakePK = r.nextInt(100);
-		
-		when(mockUr.insert(dummyUser)).thenReturn(fakePK);
-		User registerUser = us.add(dummyUser);
-		
-		assertEquals(registerUser.getId(), fakePK);
-	}
-	
-	@Test
-	void testLoginReturnUser() {
-		dummyUser = new User(0, "toddjones", "password1", "tjones@me.com", new LinkedList<Product>());
-		
-		String username = "toddjones";
-		String password = "password1";
-		
-		when(mockUr.getByUsername(username)).thenReturn(dummyUser);
-		
-		User loggedUser = us.login(username, password);
-		
-		assertEquals(loggedUser.getUsername(), username);
-	}
+//	@Test
+//	void testAddUserReturnsNewPKId() {
+//		dummyUser = new User(0, "toddjones", "password1", "tjones@me.com", new LinkedList<Product>());
+//		Random r = new Random();
+//		int fakePK = r.nextInt(100);
+//		
+//		when(mockUr).insert(dummyUser)).thenReturn(fakePK);
+//		User registerUser = us.add(dummyUser);
+//		
+//		assertEquals(registerUser.getId(), fakePK);
+//	}
+//	
+//	@Test
+//	void testLoginReturnUser() {
+//		dummyUser = new User(0, "toddjones", "password1", "tjones@me.com", new LinkedList<Product>());
+//		
+//		String username = "toddjones";
+//		String password = "password1";
+//		
+//		when(mockUr.getByUsername(username)).thenReturn(dummyUser);
+//		
+//		User loggedUser = us.login(username, password);
+//		
+//		assertEquals(loggedUser.getUsername(), username);
+//	}
 
 	
 }
