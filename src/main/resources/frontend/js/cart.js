@@ -32,3 +32,17 @@ function fillCart(products) {
   cartContainer.innerHTML = "";
   fillCart(products);
 })();
+
+/** remove from cart */
+let removeFromCart = async (e) => {
+  let sku = e;
+  let id = sessionStorage.getItem("id");
+
+  let req = await fetch(`http://localhost:8080/users/removefromcart/${sku}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", user_id: `${id}` },
+  });
+  let res = await req.json();
+  console.log(res);
+  location.reload();
+};
