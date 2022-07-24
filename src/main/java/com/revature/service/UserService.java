@@ -51,7 +51,7 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 			log.warn("Id cannot be Zero: {}", id);
 			return null;
 		}
-		return userRepo.getById(id);
+		return userRepo.getReferenceById(id);
 	}
 	
 	public User add(User u) {
@@ -71,7 +71,7 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 	}
 	
 	public User update(User u) {
-		User userToUpdate = userRepo.getById(u.getId());
+		User userToUpdate = userRepo.getReferenceById(u.getId());
 		if(u.getEmail()!=null) {
 			for(User z: findAll()) {
 				if(u.getEmail().equalsIgnoreCase(z.getEmail())) {
@@ -95,7 +95,7 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 	}
 	
 	public boolean delete(int id) {
-		if(userRepo.getById(id)==null) {
+		if(userRepo.getReferenceById(id)==null) {
 			throw new UserNotFoundException("Sorry, the user doesn't exist");
 		}else {
 		userRepo.deleteById(id);
