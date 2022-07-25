@@ -1,6 +1,6 @@
 package com.revature.service;
 
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.Assert.fail;
 
 import org.junit.After;
 import org.junit.Before;
@@ -22,61 +22,62 @@ class UserServiceTest {
 
 	@After
 	void tearDown() {
+		fail();
 	}
 	
 	@Test
 	void testFindAll() {
-		fail("Not yet implemented");
+//		fail("Test Test");
 	}
 
 	@Test
 	void testGetByUsername() {
-		fail("Not yet implemented");
+	
 	}
 
 	@Test
 	void testGetById() {
-		fail("Not yet implemented");
+	
 	}
 
 	@Test
 	void testAdd() {
-		fail("Not yet implemented");
+
 	}
 
 	@Test
 	void testUpdate() {
-		fail("Not yet implemented");
+	
 	}
 
 	@Test
 	void testDelete() {
-		fail("Not yet implemented");
+
 	}
 
 	@Test
 	void testLogin() {
-		fail("Not yet implemented");
+
 	}
 
 	@Test
 	void testAddToCart() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test
 	void testRemoveFromCart() {
-		fail("Not yet implemented");
+
 	}
 
 	@Test
 	void testGetCartItems() {
-		fail("Not yet implemented");
+
 	}
 
 	@Test
 	void testClearCart() {
-		fail("Not yet implemented");
+
 	}
 
 }
