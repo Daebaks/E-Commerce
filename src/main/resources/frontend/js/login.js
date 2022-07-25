@@ -64,8 +64,18 @@ let postRegister = async () => {
   sessionStorage.setItem("username", `${res.username}`);
 
   console.log(res);
-
   console.log(sessionStorage.getItem("id"));
+  if (
+    !sessionStorage.getItem("username") ||
+    sessionStorage.getItem("username") == "undefined" ||
+    sessionStorage.getItem("username") == null
+  ) {
+    alert("Failed register. Username taken or wrong entries! Try again.");
+    window.location.href = "login.html";
+  } else {
+    alert("Registered successfully");
+    window.location.href = "home.html";
+  }
 };
 
 function submitLogin(event) {

@@ -18,7 +18,9 @@ input[type="email"] {
   background-color: #c3d2d7;
   padding: 20px;
 }
-#submit {
+#submit-login,
+#submit-toggle,
+#submit-signup {
   background-color: #6a6c70;
   font-size: 20px;
   border-radius: 20px;
