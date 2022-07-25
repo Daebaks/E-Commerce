@@ -1,0 +1,32 @@
+sku|category     |name             |image                    |quantity|unitprice|
+---+-------------+-----------------+-------------------------+--------+---------+
+ 66|Sport Goods  |BMX              |../assets/products/12.jpg|       6|    300.0|
+ 77|Sport Goods  |Soccer Ball      |../assets/products/13.jpg|      12|    30.49|
+ 55|Sport Goods  |Bicycle          |../assets/products/11.jpg|       8|   129.99|
+ 88|Sport Goods  |Beach Ball       |../assets/products/14.jpg|      13|    12.49|
+ 99|Sport Goods  |Football         |../assets/products/15.jpg|      22|    24.99|
+102|Food & Drinks|Sushi Rolld      |../assets/products/17.jpg|       9|     12.5|
+104|Food & Drinks|California Rolls |../assets/products/18.jpg|      10|     20.5|
+  4|Electronics  |Razer Headset    |../assets/products/6.jpg |      20|   112.99|
+  3|Electronics  |Generic Headset  |../assets/products/5.jpg |      12|    99.99|
+ 47|Electronics  |HP Laptop        |../assets/products/3.png |      16|   499.49|
+ 22|Electronics  |Dell Laptop      |../assets/products/2.jpg |      20|   599.99|
+  9|Electronics  |Logitech Mouse   |../assets/products/10.jpg|       0|    59.49|
+  5|Electronics  |Samsung Mic      |../assets/products/7.jpg |       4|    49.59|
+  7|Electronics  |Karaoke Mic      |../assets/products/8.jpg |      10|    29.99|
+  8|Electronics  |Redragon Keyboard|../assets/products/9.jpg |      30|    29.99|
+ 10|Electronics  |Acer Laptop      |../assets/products/1.png |      12|   399.99|
+  2|Electronics  |Logitech Headset |../assets/products/4.png |      30|   149.49|
+123|Books        |Code Clean       |../assets/products/25.jpg|       0|    60.99|
+107|Books        |Light House      |../assets/products/20.jpg|       5|     44.0|
+103|Books        |Delo Owens       |../assets/products/19.jpg|       1|     33.0|
+145|Books        |JavaScript       |../assets/products/24.jpg|      34|    34.49|
+135|Books        |Learn Java       |../assets/products/23.jpg|      45|    55.99|
+112|Books        |Sea Breeze       |../assets/products/22.jpg|      22|    33.99|
+110|Books        |Willow Tree      |../assets/products/21.jpg|      23|    13.99|
+134|Books        |Learn HTTP       |../assets/products/26.jpg|      11|    22.99|
+978|Automotive   |Wheel Cover      |../assets/products/27.jpg|      45|    14.99|
+748|Automotive   |Backup Camera    |../assets/products/30.jpg|      15|     79.0|
+444|Automotive   |Mobile Handle    |../assets/products/28.jpg|       0|     19.2|
+333|Automotive   |WindShield Cover |../assets/products/29.jpg|      33|    35.99|
+101|Apparels     |T-Shirt          |../assets/products/16.jpg|      21|    11.99|
