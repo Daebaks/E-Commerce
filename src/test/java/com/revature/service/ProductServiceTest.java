@@ -1,4 +1,4 @@
-package com.revature;
+package com.revature.service;
 
 import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.Mockito.mock;
@@ -9,11 +9,9 @@ import org.junit.jupiter.api.Test;
 
 import com.revature.data.ProductRepository;
 import com.revature.model.Product;
-import com.revature.service.ProductService;
 
-
-
-class ProductServiceTests {
+class ProductServiceTest {
+	
 
 	private ProductService ps;
 	private ProductRepository mockPr;
@@ -35,7 +33,27 @@ class ProductServiceTests {
 	}
 
 	@Test
-	void test() {
+	void testFindAll() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testFindBySku() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testUpdate() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetInStock() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetOutOfStock() {
 		fail("Not yet implemented");
 	}
 
