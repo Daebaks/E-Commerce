@@ -1,27 +1,31 @@
 package com.revature.service;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 
 import com.revature.data.ProductRepository;
 
-@AutoConfigureTestDatabase
-class ProductServiceTest {
+ public class ProductServiceTest {
 	
-	@Autowired
-	private ProductRepository underTest;
-	
-	@Before
-	void setUp() {
+	@Mock
+    private ProductRepository ps;
+	 
+	@BeforeAll
+	public void setUp() {
 	}
 	
-	@After
-	void tearDown() {
+	@AfterAll
+	public void tearDown() {
 	}
 
+	
+	
+	
+	
 	@Test
 	void testFindAll() {
 		

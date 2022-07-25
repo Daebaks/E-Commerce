@@ -1,83 +1,42 @@
 package com.revature.service;
 
-import static org.junit.Assert.fail;
-
-import org.junit.After;
-import org.junit.Before;
+import static org.mockito.Mockito.when;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import com.revature.data.UserRepository;
+import com.revature.model.User;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@AutoConfigureTestDatabase
-class UserServiceTest {
-	
-	@Autowired
-	UserRepository underTest;
+@ExtendWith(MockitoExtension.class)
+public class UserServiceTest {
 
-	@Before
+	@Mock
+	private UserRepository uRepo;
+
+	private UserService uService;
+
+	@BeforeEach
 	void setUp() {
+		uService = new UserService(uRepo);
 	}
 
-	@After
-	void tearDown() {
-		fail();
-	}
-	
+ 
+	/* Testing getByUsername() */
 	@Test
-	void testFindAll() {
-//		fail("Test Test");
-	}
+	public void testgetByUsernameSuccessfully() {
+		User test = new User("alialrubaye", "asdasdasd", "ali@hotmail.com");
 
-	@Test
-	void testGetByUsername() {
-	
-	}
+		when(uRepo.getByUsername("alialrubaye")).thenReturn(test);
 
-	@Test
-	void testGetById() {
-	
-	}
+		User returnedUser = uService.getByUsername("alialrubaye");
 
-	@Test
-	void testAdd() {
+		assertEquals(test, returnedUser);
 
 	}
-
-	@Test
-	void testUpdate() {
-	
-	}
-
-	@Test
-	void testDelete() {
-
-	}
-
-	@Test
-	void testLogin() {
-
-	}
-
-	@Test
-	void testAddToCart() {
-		
-	}
-
-	@Test
-	void testRemoveFromCart() {
-
-	}
-
-	@Test
-	void testGetCartItems() {
-
-	}
-
-	@Test
-	void testClearCart() {
-
-	}
+ 
 
 }

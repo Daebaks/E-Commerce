@@ -32,7 +32,11 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 	@Autowired
 	ProductRepository productRepo;
 	
-	
+	//Constructor
+	public UserService(UserRepository userRepo) {
+		this.userRepo = userRepo;
+	}
+
 	public Set<User> findAll(){
 		// return from the user repository the findall method but stream it to a set
 		return userRepo.findAll().stream().collect(Collectors.toSet());
