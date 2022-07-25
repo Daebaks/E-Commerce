@@ -1,35 +1,27 @@
 package com.revature.service;
 
 import static org.junit.jupiter.api.Assertions.fail;
-import static org.mockito.Mockito.mock;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import com.revature.data.ProductRepository;
-import com.revature.model.Product;
 
+@DataJpaTest
 class ProductServiceTest {
 	
-
-	private ProductService ps;
-	private ProductRepository mockPr;
-	private Product dummyProduct;
+	@Autowired
+	private ProductRepository underTest;
 	
 	@Before
 	void setUp() {
-		ps = new ProductService();
-		mockPr =mock(ProductRepository.class);
-		dummyProduct = new Product();
-		dummyProduct.setSku(0L);
 	}
 	
 	@After
 	void tearDown() {
-		ps = null;
-		mockPr = null;
-		dummyProduct = null;
 	}
 
 	@Test

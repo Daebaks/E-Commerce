@@ -1,39 +1,29 @@
 package com.revature.service;
 
 import static org.junit.jupiter.api.Assertions.fail;
-import static org.mockito.Mockito.mock;
-
-import java.util.LinkedList;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import com.revature.data.UserRepository;
-import com.revature.model.Product;
-import com.revature.model.User;
 
+@DataJpaTest
 class UserServiceTest {
 	
-	private UserService us;
-	private UserRepository mockUr;
-	private User dummyUser;
+	@Autowired
+	UserRepository underTest;
 
 	@Before
 	void setUp() {
-		us = new UserService();
-		mockUr = mock(UserRepository.class);
-		dummyUser = new User();
-		dummyUser.setCart(new LinkedList<Product>());
-		dummyUser.setId(0);
 	}
 
 	@After
 	void tearDown() {
-		us = null;
-		mockUr = null;
-		dummyUser = null;
 	}
+	
 	@Test
 	void testFindAll() {
 		fail("Not yet implemented");
