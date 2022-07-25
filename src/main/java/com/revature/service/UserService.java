@@ -73,7 +73,7 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 	
 	public User update(User u) {
 		User userToUpdate = userRepo.getReferenceById(u.getId());
-		if(u.getEmail()!=null) {
+		if(u.getEmail()!=null && !u.getEmail().isEmpty()) {
 			for(User z: findAll()) {
 				if(u.getEmail().equalsIgnoreCase(z.getEmail())) {
 					throw new SameEmailExistsException("Sorry, this email already exists or you didn't change it");
@@ -81,7 +81,7 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 			}
 			userToUpdate.setEmail(u.getEmail());
 		}
-		if(u.getUsername()!=null) {
+		if(u.getUsername()!=null && !u.getUsername().isEmpty() ) {
 			for(User z: findAll()) {
 				if(u.getUsername().equalsIgnoreCase(z.getUsername())) {
 					throw new UserNameAlreadyTakenException("Sorry, this username already exists or you didn't change it");
@@ -89,7 +89,7 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 			}
 			userToUpdate.setUsername(u.getUsername());
 		}
-		if(u.getPassword()!=null) {
+		if(u.getPassword()!=null && !u.getPassword().isEmpty()) {
 			userToUpdate.setPassword(u.getPassword());
 		}
 		return userRepo.save(userToUpdate);
