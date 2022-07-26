@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import com.revature.data.ProductRepository;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -39,6 +41,7 @@ public class Product {
 	
 	@Column(name = "image")
 	private String path;
+	
 	
 	public Product(@NotBlank String name, Double unitprice, String category, int quantity, String path) {
 		super();

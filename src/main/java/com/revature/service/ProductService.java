@@ -18,6 +18,11 @@ public class ProductService {
 
 	@Autowired
 	ProductRepository productRepository;
+	
+	// Constructor
+	public ProductService(ProductRepository productRepository) {
+		this.productRepository = productRepository;
+	}
 
 	public List<Product> findAll() {
 		return productRepository.findAll();
