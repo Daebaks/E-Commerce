@@ -38,7 +38,6 @@ public class ProductService {
 		log.info("product was updated - changed quantity");
 		return productRepository.save(product);
 	}
-
 	public List<Product> getInStock() {
 		log.info("getInStock products invoked");
 		List<Product> available = new ArrayList<>();
@@ -49,7 +48,6 @@ public class ProductService {
 		}
 		return available;
 	}
-
 	public List<Product> getOutOfStock() {
 		log.info("getOutOfStock products invoked");
 		List<Product> notAvailable = new ArrayList<>();

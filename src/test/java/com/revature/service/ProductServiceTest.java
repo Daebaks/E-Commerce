@@ -85,13 +85,55 @@ public class ProductServiceTest {
 		p2 = new Product("Laptop", 300.99, "Electronics", 50, "path2.jpg");
 		p2.setSku(7890L);
 		when(pRepo.save(p2)).thenReturn(p2);
-
 		p3 = ps.update(p2);
-
 		assertEquals(p2, p3);
 
 	}
-	
-	
-	
+
+	/* test getInStock() */
+	@Test
+	void testGetInStockSuccessfully() {
+		p1 = new Product("Bike", 20.99, "Sport", 100, "path.jpg");
+		p1.setSku(7890L);
+		p2 = new Product("Laptop", 300.99, "Electronics", 50, "path2.jpg");
+		p2.setSku(78L);
+		p3 = new Product("BMX", 129.99, "Sport", 0, "path2.jpg");
+		p3.setSku(7448L);
+		List<Product> stockList = new ArrayList<>();
+		stockList.add(p1);
+		stockList.add(p2);
+		stockList.add(p3);
+
+		List<Product> available = new ArrayList<>();
+		when(pRepo.findAll()).thenReturn(stockList);
+		available = ps.getInStock();
+
+		for (Product p : available) {
+			assert p.getQuantity() > 0;
+		}
+
+	}
+	/* test getOutOfStock() */
+	@Test
+	void testGetOutOfStockSuccessfully() {
+		p1 = new Product("Bike", 20.99, "Sport", 100, "path.jpg");
+		p1.setSku(7890L);
+		p2 = new Product("Laptop", 300.99, "Electronics", 50, "path2.jpg");
+		p2.setSku(78L);
+		p3 = new Product("BMX", 129.99, "Sport", 0, "path2.jpg");
+		p3.setSku(7448L);
+		List<Product> stockList = new ArrayList<>();
+		stockList.add(p1);
+		stockList.add(p2);
+		stockList.add(p3);
+
+		List<Product> available = new ArrayList<>();
+		when(pRepo.findAll()).thenReturn(stockList);
+		available = ps.getOutOfStock();
+
+		for (Product p : available) {
+			assert p.getQuantity() == 0;
+		}
+
+	}
 }
