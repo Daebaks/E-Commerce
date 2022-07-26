@@ -1,0 +1,48 @@
+2022-07-26 15:36:57.026  INFO 21996 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-26 15:36:57.026  INFO 21996 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-07-26 15:36:57.028  INFO 21996 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-07-26 15:36:57.029  INFO 21996 --- [http-nio-8080-exec-1] com.revature.service.ProductService      : getInStock products invoked
+2022-07-26 15:36:57.030  INFO 21996 --- [http-nio-8080-exec-2] com.revature.service.ProductService      : getOutOfStock products invoked
+2022-07-26 15:37:18.323  INFO 21996 --- [http-nio-8080-exec-3] com.revature.service.ProductService      : getInStock products invoked
+2022-07-26 15:37:18.327  INFO 21996 --- [http-nio-8080-exec-4] com.revature.service.ProductService      : getOutOfStock products invoked
+2022-07-26 15:37:42.021  INFO 21996 --- [http-nio-8080-exec-5] com.revature.service.ProductService      : getInStock products invoked
+2022-07-26 15:37:42.036  INFO 21996 --- [http-nio-8080-exec-6] com.revature.service.ProductService      : getOutOfStock products invoked
+2022-07-26 15:37:46.960  INFO 21996 --- [http-nio-8080-exec-7] com.revature.service.ProductService      : getInStock products invoked
+2022-07-26 15:37:46.964  INFO 21996 --- [http-nio-8080-exec-8] com.revature.service.ProductService      : getOutOfStock products invoked
+2022-07-26 15:38:01.006  INFO 21996 --- [http-nio-8080-exec-10] com.revature.service.UserService         : Add item to cart: user-id:  3 sku-added: 748   was invoked
+2022-07-26 15:38:03.010  INFO 21996 --- [http-nio-8080-exec-1] com.revature.service.UserService         : Add item to cart: user-id:  3 sku-added: 978   was invoked
+2022-07-26 15:38:05.045  INFO 21996 --- [http-nio-8080-exec-4] com.revature.service.UserService         : Add item to cart: user-id:  3 sku-added: 107   was invoked
+2022-07-26 15:38:06.865  INFO 21996 --- [http-nio-8080-exec-5] com.revature.service.UserService         : get cart's items for user-id: 3   was invoked
+2022-07-26 15:40:50.200  INFO 21996 --- [http-nio-8080-exec-8] com.revature.service.UserService         : get cart's items for user-id: 3   was invoked
+2022-07-26 15:42:06.383  INFO 21996 --- [http-nio-8080-exec-10] com.revature.service.UserService         : get cart's items for user-id: 3   was invoked
+2022-07-26 15:42:50.278  INFO 21996 --- [http-nio-8080-exec-1] com.revature.service.UserService         : Remove item from cart: user-id:  3 sku-added: 748   was invoked
+2022-07-26 15:42:50.342  INFO 21996 --- [http-nio-8080-exec-3] com.revature.service.UserService         : get cart's items for user-id: 3   was invoked
+2022-07-26 15:42:51.195  INFO 21996 --- [http-nio-8080-exec-5] com.revature.service.UserService         : Remove item from cart: user-id:  3 sku-added: 107   was invoked
+2022-07-26 15:42:51.254  INFO 21996 --- [http-nio-8080-exec-6] com.revature.service.UserService         : get cart's items for user-id: 3   was invoked
+2022-07-26 15:42:51.992  INFO 21996 --- [http-nio-8080-exec-8] com.revature.service.UserService         : Remove item from cart: user-id:  3 sku-added: 978   was invoked
+2022-07-26 15:42:52.033  INFO 21996 --- [http-nio-8080-exec-9] com.revature.service.UserService         : get cart's items for user-id: 3   was invoked
+2022-07-26 15:42:53.012  INFO 21996 --- [http-nio-8080-exec-10] com.revature.service.ProductService      : getInStock products invoked
+2022-07-26 15:42:53.013  INFO 21996 --- [http-nio-8080-exec-2] com.revature.service.ProductService      : getOutOfStock products invoked
+2022-07-26 15:42:58.699  INFO 21996 --- [http-nio-8080-exec-3] com.revature.service.UserService         : Add item to cart: user-id:  3 sku-added: 110   was invoked
+2022-07-26 15:43:06.052  INFO 21996 --- [http-nio-8080-exec-4] com.revature.service.UserService         : Add item to cart: user-id:  3 sku-added: 978   was invoked
+2022-07-26 15:43:09.273  INFO 21996 --- [http-nio-8080-exec-5] com.revature.service.UserService         : get cart's items for user-id: 3   was invoked
+2022-07-26 15:44:21.253  INFO 21996 --- [http-nio-8080-exec-8] com.revature.service.UserService         : get cart's items for user-id: 3   was invoked
+2022-07-26 15:44:54.623  INFO 21996 --- [http-nio-8080-exec-9] com.revature.service.UserService         : get cart's items for user-id: 3   was invoked
+2022-07-26 15:44:57.428  INFO 21996 --- [http-nio-8080-exec-10] com.revature.service.ProductService      : product was updated - changed quantity
+2022-07-26 15:44:57.442  INFO 21996 --- [http-nio-8080-exec-2] com.revature.service.ProductService      : product was updated - changed quantity
+2022-07-26 15:44:57.448  INFO 21996 --- [http-nio-8080-exec-1] com.revature.service.UserService         : user placed an order user-id: 3   was invoked
+2022-07-26 15:45:13.828  INFO 21996 --- [http-nio-8080-exec-3] com.revature.service.UserService         : get cart's items for user-id: 3   was invoked
+2022-07-26 15:45:15.262  INFO 21996 --- [http-nio-8080-exec-4] com.revature.service.ProductService      : getInStock products invoked
+2022-07-26 15:45:15.272  INFO 21996 --- [http-nio-8080-exec-5] com.revature.service.ProductService      : getOutOfStock products invoked
+2022-07-26 15:45:17.481  INFO 21996 --- [http-nio-8080-exec-7] com.revature.service.UserService         : Add item to cart: user-id:  3 sku-added: 2   was invoked
+2022-07-26 15:45:20.045  INFO 21996 --- [http-nio-8080-exec-8] com.revature.service.UserService         : get cart's items for user-id: 3   was invoked
+2022-07-26 15:45:24.020  INFO 21996 --- [http-nio-8080-exec-9] com.revature.service.ProductService      : product was updated - changed quantity
+2022-07-26 15:45:24.025  INFO 21996 --- [http-nio-8080-exec-10] com.revature.service.UserService         : user placed an order user-id: 3   was invoked
+2022-07-26 15:45:50.473  INFO 21996 --- [http-nio-8080-exec-2] com.revature.service.ProductService      : getInStock products invoked
+2022-07-26 15:45:50.487  INFO 21996 --- [http-nio-8080-exec-1] com.revature.service.ProductService      : getOutOfStock products invoked
+2022-07-26 15:45:52.013  INFO 21996 --- [http-nio-8080-exec-4] com.revature.service.UserService         : Add item to cart: user-id:  3 sku-added: 103   was invoked
+2022-07-26 15:45:54.207  INFO 21996 --- [http-nio-8080-exec-5] com.revature.service.UserService         : get cart's items for user-id: 3   was invoked
+2022-07-26 15:45:57.749  INFO 21996 --- [http-nio-8080-exec-6] com.revature.service.ProductService      : product was updated - changed quantity
+2022-07-26 15:45:57.757  INFO 21996 --- [http-nio-8080-exec-7] com.revature.service.UserService         : user placed an order user-id: 3   was invoked
+2022-07-26 15:48:33.597  INFO 21996 --- [http-nio-8080-exec-9] com.revature.service.ProductService      : getInStock products invoked
+2022-07-26 15:48:33.603  INFO 21996 --- [http-nio-8080-exec-10] com.revature.service.ProductService      : getOutOfStock products invoked

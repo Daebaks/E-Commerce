@@ -16,17 +16,23 @@ function fillCart(products) {
             <div class="the-text">
         <h2>Category: ${p.category}</h2>
         <h2>Name: ${p.name}</h2>
-        <h2>Price: ${p.unitprice} $</h2>
+        <h2>Price: ${(Math.round(p.unitprice * 100) / 100).toFixed(2)} $</h2>
         </div>
             <div class="the-image">
         <img src="${p.path}" alt="product_img" width="150" height="150"/>
         </div>
             <div class="the-amount">
             <h2>Quantity</h2><br/>
-         <input class="counter" type="number" id="${p.sku}" value="1" step="1"  min="1" max="${p.quantity}" onKeyDown="return false"/>
+         <input class="counter" type="number" id="${
+           p.sku
+         }" value="1" step="1"  min="1" max="${
+      p.quantity
+    }" onKeyDown="return false"/>
         </div>
             <div class="the-button">
-        <button id="add-to-cart" value="${p.sku}" onclick="removeFromCart(this.value)">Remove from cart</button>
+        <button id="add-to-cart" value="${
+          p.sku
+        }" onclick="removeFromCart(this.value)">Remove from cart</button>
         </div>
         `;
 
@@ -39,7 +45,6 @@ function fillCart(products) {
   let req = await fetch(`${URL}/users/cart/${loggedUserId}`);
   let res = await req.json();
   products = res;
-  console.log(products);
   cartContainer.innerHTML = "";
   fillCart(products);
 })();
@@ -63,10 +68,11 @@ let checkOut = async () => {
     window.location.href = "products.html";
     alert("Add items first!!!");
   }
+  let totalInvoice = 0;
   for (p of products) {
     let amount = document.getElementById(p.sku).value;
+    totalInvoice += amount * p.unitprice;
     let newQuantity = p.quantity - amount;
-    console.log(amount);
     let updateObj = {
       sku: p.sku,
       category: p.category,
@@ -93,5 +99,5 @@ let checkOut = async () => {
   console.log(res);
 
   window.location.href = "home.html";
-  alert("Order placed successfully!!");
+  alert("Order placed successfully, your total = " + totalInvoice + " $");
 };

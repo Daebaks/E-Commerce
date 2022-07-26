@@ -16,8 +16,6 @@ let postLogin = async () => {
     password,
   };
 
-  console.log(loginObj);
-
   let req = await fetch(`http://localhost:8080/users/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -34,7 +32,6 @@ let postLogin = async () => {
     window.location.href = "login.html";
   } else {
     alert("Successfully logged-in");
-    console.log(sessionStorage.getItem("id"));
     window.location.href = "products.html";
   }
 };
@@ -50,8 +47,6 @@ let postRegister = async () => {
     email,
   };
 
-  console.log(registerObj);
-
   let req = await fetch(`http://localhost:8080/users`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -64,7 +59,6 @@ let postRegister = async () => {
   sessionStorage.setItem("username", `${res.username}`);
 
   console.log(res);
-  console.log(sessionStorage.getItem("id"));
   if (
     !sessionStorage.getItem("username") ||
     sessionStorage.getItem("username") == "undefined" ||

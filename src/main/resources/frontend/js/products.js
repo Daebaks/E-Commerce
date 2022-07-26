@@ -7,12 +7,16 @@ function populateInStock(available) {
     let divAvailable = document.createElement("div");
 
     divAvailable.innerHTML = `
-    <img src="${p.path}" alt="product_img" class="product-image" width="350" height="350"/>
+    <img src="${
+      p.path
+    }" alt="product_img" class="product-image" width="350" height="350"/>
         <h2>Category: ${p.category}</h2>
         <h2>Name: ${p.name}</h2>
-        <h2>Price: ${p.unitprice} $</h2>
+        <h2>Price: ${(Math.round(p.unitprice * 100) / 100).toFixed(2)} $</h2>
         <h2>Quantity in stock: ${p.quantity}</h2>
-        <button id="add-to-cart" value="${p.sku}" onclick="addToCart(this.value)">Add to cart</button>
+        <button id="add-to-cart" value="${
+          p.sku
+        }" onclick="addToCart(this.value)">Add to cart</button>
         `;
 
     divAvailable.setAttribute("class", "product");
@@ -24,7 +28,6 @@ function populateInStock(available) {
   let req = await fetch(`${URL}/products/instock`);
   let res = await req.json();
   available = res;
-  console.log(available);
   availableContainer.innerHTML = "";
   populateInStock(available);
 })();
@@ -37,10 +40,12 @@ function populateOutOfStock(sold) {
     let divSold = document.createElement("div");
 
     divSold.innerHTML = `
-    <img src="${p.path}" alt="product_img" class="product-image" width="350" height="350"/>
+    <img src="${
+      p.path
+    }" alt="product_img" class="product-image" width="350" height="350"/>
         <h2>Category: ${p.category}</h2>
         <h2>Name: ${p.name}</h2>
-        <h2>Price: ${p.unitprice} $</h2>
+        <h2>Price: ${(Math.round(p.unitprice * 100) / 100).toFixed(2)} $</h2>
         <h2>Quantity in stock: ${p.quantity}</h2>
         
          `;
@@ -54,7 +59,6 @@ function populateOutOfStock(sold) {
   let req = await fetch(`${URL}/products/outofstock`);
   let res = await req.json();
   sold = res;
-  console.log(sold);
   soldContainer.innerHTML = "";
   populateOutOfStock(sold);
 })();
@@ -64,7 +68,6 @@ function toggleOutOfStock() {
   let style = window.getComputedStyle(container);
   let display = style.getPropertyValue("display");
 
-  console.log(display);
   if (display == "none") {
     container.style.display = "inline-flex";
   } else {
