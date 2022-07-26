@@ -1,45 +1,78 @@
 package com.revature.service;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.mock;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.revature.data.ProductRepository;
+import com.revature.data.UserRepository;
 import com.revature.model.Product;
-import com.revature.model.User;
 
- public class ProductServiceTest {
-	
+@ExtendWith(MockitoExtension.class)
+public class ProductServiceTest {
+
 	@Mock
-    private ProductRepository pRepo;
+	private ProductRepository pRepo;
 	
 	private ProductService ps;
 
 	private Product p1;
 	private Product p2;
-	private Product p3;	
-	
-	@BeforeAll
+	private Product p3;
+
+	@BeforeEach
 	public void setUp() {
 		ps = new ProductService(pRepo);
 	}
-	
-	@AfterAll
+
+	@AfterEach
 	public void tearDown() {
-		  p1 = null;
-		  p2 = null;
-		  p3 = null;
-		  ps = null;
+		p1 = null;
+		p2 = null;
+		p3 = null;
+		ps = null;
 	}
 
-//	/* test findAll() */
-//	@Test
-//	void testFindAll() {
+	/* test findAll() */
+	@Test
+	void testFindAllSuccessfully() {
+//		p1 = new Product("Bike", 20.99, "Sport", 100, "path.jpg");
+//		p1.setSku(7890L);
+//		p2 = new Product("Laptop", 300.99, "Electronics", 50, "path2.jpg");
+//		p2.setSku(78L);
+//		List<Product> productsList = new ArrayList<>();
+//		productsList.add(p1);
+//		productsList.add(p2);
+//		when(pRepo.findAll()).thenReturn(productsList);
+//		List<Product> productsListReturned = ps.findAll();
 //		
-//	}
+//		assertEquals(productsListReturned, productsList);
+//		
+	}
 
+	/* test findAll() */
+	@Test
+	void testFindBySkuSuccessfully() {
+		p1 = new Product("Bike", 20.99, "Sport", 100, "path.jpg");
+		p1.setSku(7890L);
+		when(pRepo.getReferenceById(7890L)).thenReturn(p1);
+
+		p2 = ps.findBySku(p1.getSku());
+
+		assertEquals(p1, p2);
+
+	}
 
 }
