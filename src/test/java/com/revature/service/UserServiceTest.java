@@ -3,6 +3,7 @@ package com.revature.service;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,10 +22,12 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.revature.data.ProductRepository;
 import com.revature.data.UserRepository;
+import com.revature.exception.UserNameAlreadyTakenException;
+import com.revature.exception.UserNotFoundException;
+import com.revature.exception.WrongPasswordException;
 import com.revature.model.Product;
 import com.revature.model.User;
 
- 
 @ExtendWith(MockitoExtension.class)
 public class UserServiceTest {
 
@@ -45,9 +48,8 @@ public class UserServiceTest {
 
 	@BeforeEach
 	public void setUp() {
-		uService = new UserService(uRepo);
+		uService = new UserService(uRepo, pRepo);
 		pService = new ProductService(pRepo);
-		 
 	}
 
 	@AfterEach
@@ -69,7 +71,15 @@ public class UserServiceTest {
 		user2 = uService.getByUsername("johnsmith");
 		assertEquals(user1, user2);
 	}
-
+	@Test
+	public void testgetByUsernameNotExistException() {
+		user1 = new User("johnsmith", "asdasdasd", "john@hotmail.com");
+		when(uRepo.getByUsername("johnsddmith")).thenReturn(null);
+		assertThrows(UserNotFoundException.class, () -> {
+			uService.getByUsername("johnsddmith");
+		});
+	}
+	
 	/* Testing getById() */
 	@Test
 	public void testgetByIdSuccessfully() {
@@ -89,15 +99,79 @@ public class UserServiceTest {
 		user2 = uService.login("johnsmith", "asdasdasd");
 		assertEquals(user1, user2);
 	}
-
+	@Test
+	public void testLoginUserNotFoundException() {
+		user1 = new User("johnsmith", "asdasdasd", "john@hotmail.com");
+		user1.setId(2);
+		when(uRepo.getByUsername("johnsmasdasdith")).thenReturn(null);
+		assertThrows(UserNotFoundException.class, () -> {
+			uService.login("johnsmasdasdith", "123123123");
+		});
+		
+	}
+	@Test
+	public void testLoginWrongPasswordException() {
+		user1 = new User("johnsmith", "asdasdasd", "john@hotmail.com");
+		user1.setId(2);
+		when(uRepo.getByUsername("johnsmith")).thenReturn(user1);
+		assertThrows(WrongPasswordException.class, () -> {
+			uService.login("johnsmith", "123123123");
+		});
+		
+	}
 	/* Testing add() */
 	@Test
 	public void testAddSuccessfully() {
+		
+		
+//		user1 = new User("johnsmith", "asdasdasd", "john@hotmail.com");
+//		user1.setId(2);
+//		user2 = new User("jackloyed", "123456", "jack@hotmail.com");
+//		user2.setId(3);
+//
+//		List<User> userList = new ArrayList<>();
+//		userList.add(user1);
+//		userList.add(user2);
+//
+//		when(uRepo.findAll()).thenReturn(userList);
+//		Set<User> uSet = new HashSet<>();
+//		for (User u : userList) {
+//			uSet.add(u);
+//		}
+//		Set<User> returned = uService.findAll();
+		
+		
+		
 		user1 = new User("johnsmith", "asdasdasd", "john@hotmail.com");
 		user1.setId(2);
 		when(uRepo.save(user1)).thenReturn(user1);
 		user2 = uService.add(user1);
 		assertEquals(user1, user2);
+	}
+	@Test
+	public void testAddUsernameTakenException() {
+		user1 = new User("johnsmith", "asdasdasd", "john@hotmail.com");
+		user1.setId(2);
+		user2 = new User("jackloyed", "123456", "jack@hotmail.com");
+		user2.setId(3);
+
+		List<User> userList = new ArrayList<>();
+		userList.add(user1);
+		userList.add(user2);
+
+		when(uRepo.findAll()).thenReturn(userList);
+		Set<User> uSet = new HashSet<>();
+		for (User u : userList) {
+			uSet.add(u);
+		}
+		user3 = new User("jackloyed", "12asdasd3456", "jackddd@hotmail.com");
+		user3.setId(4);
+		
+		assertThrows(UserNameAlreadyTakenException.class, () -> {
+			uService.add(user3);
+		});
+ 		
+		
 	}
 
 	/* Testing update() */
@@ -128,13 +202,13 @@ public class UserServiceTest {
 		user2 = new User("jackloyed", "123456", "jack@hotmail.com");
 		user2.setId(3);
 
-		List<User> userList =new ArrayList<>();
+		List<User> userList = new ArrayList<>();
 		userList.add(user1);
 		userList.add(user2);
-		 
+
 		when(uRepo.findAll()).thenReturn(userList);
 		Set<User> uSet = new HashSet<>();
-		for(User u: userList) {
+		for (User u : userList) {
 			uSet.add(u);
 		}
 		Set<User> returned = uService.findAll();
@@ -144,15 +218,78 @@ public class UserServiceTest {
 	/* Testing delete() */
 	@Test
 	public void testDeleteSuccessfully() {
-//		user1 = new User("johnsmith", "asdasdasd", "john@hotmail.com");
-//		user1.setId(978);
-//		when(uRepo.getReferenceById(978)).thenReturn(user1);
-//		//when(uRepo.deleteById(978)).thenReturn(true);
-//		when(uRepo.existsById(978)).thenReturn(true);
-//		
-//		assertEquals(true, uService.delete(978));
+		user1 = new User("johnsmith", "asdasdasd", "john@hotmail.com");
+		user1.setId(978);
+		when(uRepo.getReferenceById(978)).thenReturn(user1);
+		// when(uRepo.deleteById(978)).thenReturn(true);
+		when(uRepo.existsById(978)).thenReturn(false);
+		assertEquals(true, uService.delete(978));
 	}
-	
-	
-	
+
+	/* Testing addToCart() */
+	@Test
+	public void testAddToCartSuccessfully() {
+		user1 = new User("johnsmith", "asdasdasd", "john@hotmail.com");
+		user1.setId(999);
+
+		pro1 = new Product("Bike", 20.99, "Sport", 100, "path.jpg");
+		pro1.setSku(7890L);
+		when(uRepo.getReferenceById(999)).thenReturn(user1);
+		when(pRepo.getReferenceById(7890L)).thenReturn(pro1);
+
+		List<Product> cart = new ArrayList<>();
+
+		user1.setCart(cart);
+
+		when(uRepo.save(user1)).thenReturn(user1);
+		user2 = uService.addToCart(999, 7890L);
+		cart.add(pro1);
+
+		assertEquals(user1, user2);
+
+	}
+
+	/* Testing getCartItems() */
+	@Test
+	public void testGetCartItemsSuccessfully() {
+		user1 = new User("johnsmith", "asdasdasd", "john@hotmail.com");
+		user1.setId(999);
+		pro1 = new Product("Bike", 20.99, "Sport", 100, "path.jpg");
+		pro1.setSku(7890L);
+
+		List<Product> cart = new ArrayList<>();
+		cart.add(pro1);
+		user1.setCart(cart);
+
+		when(uRepo.getReferenceById(999)).thenReturn(user1);
+
+		List<Product> cartReturned = uService.getCartItems(999);
+
+		assert cartReturned.equals(user1.getCart());
+
+	}
+
+	/* Testing clearCart() */
+	@Test
+	public void testClearCartSuccessfully() {
+		user1 = new User("johnsmith", "asdasdasd", "john@hotmail.com");
+		user1.setId(999);
+		pro1 = new Product("Bike", 20.99, "Sport", 100, "path.jpg");
+		pro1.setSku(7890L);
+		List<Product> cart = new ArrayList<>();
+		cart.add(pro1);
+		user1.setCart(cart);
+
+		when(uRepo.getReferenceById(999)).thenReturn(user1);
+
+		user1.setCart(new ArrayList<>());
+
+		when(uRepo.save(user1)).thenReturn(user1);
+
+		user2 = uService.clearCart(999);
+
+		assertEquals(user1, user2);
+
+	}
+
 }

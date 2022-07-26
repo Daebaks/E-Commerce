@@ -33,8 +33,9 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 	ProductRepository productRepo;
 	
 	//Constructor
-	public UserService(UserRepository userRepo) {
+	public UserService(UserRepository userRepo, ProductRepository productRepo) {
 		this.userRepo = userRepo;
+		this.productRepo = productRepo;
 	}
 
 	public Set<User> findAll(){
@@ -109,7 +110,7 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 
 	public User login(String username, String password) {
 		User u = userRepo.getByUsername(username);
-		log.info(u.toString());
+//		log.info(u.toString());
 		if (u==null) {
 			throw new UserNotFoundException("Wrong username or user doesn't exist");
 		}
@@ -120,7 +121,7 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 	}
 	
 	public User addToCart(int id, Long sku) {
-		User u = userRepo.findById(id).get();
+		User u = userRepo.getReferenceById(id);
 		Product p = productRepo.getReferenceById(sku);
 		for(Product pr: u.getCart()) {
 			if(pr.equals(p)) {
