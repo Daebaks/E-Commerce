@@ -25,7 +25,7 @@ public class ProductServiceTest {
 
 	@Mock
 	private ProductRepository pRepo;
-	
+
 	private ProductService ps;
 
 	private Product p1;
@@ -48,21 +48,21 @@ public class ProductServiceTest {
 	/* test findAll() */
 	@Test
 	void testFindAllSuccessfully() {
-//		p1 = new Product("Bike", 20.99, "Sport", 100, "path.jpg");
-//		p1.setSku(7890L);
-//		p2 = new Product("Laptop", 300.99, "Electronics", 50, "path2.jpg");
-//		p2.setSku(78L);
-//		List<Product> productsList = new ArrayList<>();
-//		productsList.add(p1);
-//		productsList.add(p2);
-//		when(pRepo.findAll()).thenReturn(productsList);
-//		List<Product> productsListReturned = ps.findAll();
-//		
-//		assertEquals(productsListReturned, productsList);
-//		
+		p1 = new Product("Bike", 20.99, "Sport", 100, "path.jpg");
+		p1.setSku(7890L);
+		p2 = new Product("Laptop", 300.99, "Electronics", 50, "path2.jpg");
+		p2.setSku(78L);
+		List<Product> productsList = new ArrayList<>();
+		productsList.add(p1);
+		productsList.add(p2);
+		when(pRepo.findAll()).thenReturn(productsList);
+		List<Product> productsListReturned = ps.findAll();
+
+		assertEquals(productsListReturned, productsList);
+
 	}
 
-	/* test findAll() */
+	/* test findBySku() */
 	@Test
 	void testFindBySkuSuccessfully() {
 		p1 = new Product("Bike", 20.99, "Sport", 100, "path.jpg");
@@ -75,4 +75,23 @@ public class ProductServiceTest {
 
 	}
 
+	/* test update() */
+	@Test
+	void testUpdateSuccessfully() {
+		p1 = new Product("Bike", 20.99, "Sport", 100, "path.jpg");
+		p1.setSku(7890L);
+
+		// update object
+		p2 = new Product("Laptop", 300.99, "Electronics", 50, "path2.jpg");
+		p2.setSku(7890L);
+		when(pRepo.save(p2)).thenReturn(p2);
+
+		p3 = ps.update(p2);
+
+		assertEquals(p2, p3);
+
+	}
+	
+	
+	
 }
