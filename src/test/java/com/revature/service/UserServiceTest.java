@@ -193,16 +193,7 @@ public class UserServiceTest {
 		assert uSet.equals(returned);
 	}
 
-	/* Testing delete() */
-	@Test
-	public void testDeleteSuccessfully() {
-		user1 = new User("johnsmith", "asdasdasd", "john@hotmail.com");
-		user1.setId(978);
-		when(uRepo.getReferenceById(978)).thenReturn(user1);
-		when(uRepo.existsById(978)).thenReturn(false);
-		assertEquals(true, uService.delete(978));
-	}
-
+	
 	/* Testing addToCart() */
 	@Test
 	public void testAddToCartSuccessfully() {

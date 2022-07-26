@@ -35,11 +35,11 @@ import com.revature.model.User;
 		  ps = null;
 	}
 
-	/* test findAll() */
-	@Test
-	void testFindAll() {
-		
-	}
+//	/* test findAll() */
+//	@Test
+//	void testFindAll() {
+//		
+//	}
 
 
 }
