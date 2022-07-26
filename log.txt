@@ -1,48 +1,27 @@
-2022-07-26 15:36:57.026  INFO 21996 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-07-26 15:36:57.026  INFO 21996 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-07-26 15:36:57.028  INFO 21996 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2022-07-26 15:36:57.029  INFO 21996 --- [http-nio-8080-exec-1] com.revature.service.ProductService      : getInStock products invoked
-2022-07-26 15:36:57.030  INFO 21996 --- [http-nio-8080-exec-2] com.revature.service.ProductService      : getOutOfStock products invoked
-2022-07-26 15:37:18.323  INFO 21996 --- [http-nio-8080-exec-3] com.revature.service.ProductService      : getInStock products invoked
-2022-07-26 15:37:18.327  INFO 21996 --- [http-nio-8080-exec-4] com.revature.service.ProductService      : getOutOfStock products invoked
-2022-07-26 15:37:42.021  INFO 21996 --- [http-nio-8080-exec-5] com.revature.service.ProductService      : getInStock products invoked
-2022-07-26 15:37:42.036  INFO 21996 --- [http-nio-8080-exec-6] com.revature.service.ProductService      : getOutOfStock products invoked
-2022-07-26 15:37:46.960  INFO 21996 --- [http-nio-8080-exec-7] com.revature.service.ProductService      : getInStock products invoked
-2022-07-26 15:37:46.964  INFO 21996 --- [http-nio-8080-exec-8] com.revature.service.ProductService      : getOutOfStock products invoked
-2022-07-26 15:38:01.006  INFO 21996 --- [http-nio-8080-exec-10] com.revature.service.UserService         : Add item to cart: user-id:  3 sku-added: 748   was invoked
-2022-07-26 15:38:03.010  INFO 21996 --- [http-nio-8080-exec-1] com.revature.service.UserService         : Add item to cart: user-id:  3 sku-added: 978   was invoked
-2022-07-26 15:38:05.045  INFO 21996 --- [http-nio-8080-exec-4] com.revature.service.UserService         : Add item to cart: user-id:  3 sku-added: 107   was invoked
-2022-07-26 15:38:06.865  INFO 21996 --- [http-nio-8080-exec-5] com.revature.service.UserService         : get cart's items for user-id: 3   was invoked
-2022-07-26 15:40:50.200  INFO 21996 --- [http-nio-8080-exec-8] com.revature.service.UserService         : get cart's items for user-id: 3   was invoked
-2022-07-26 15:42:06.383  INFO 21996 --- [http-nio-8080-exec-10] com.revature.service.UserService         : get cart's items for user-id: 3   was invoked
-2022-07-26 15:42:50.278  INFO 21996 --- [http-nio-8080-exec-1] com.revature.service.UserService         : Remove item from cart: user-id:  3 sku-added: 748   was invoked
-2022-07-26 15:42:50.342  INFO 21996 --- [http-nio-8080-exec-3] com.revature.service.UserService         : get cart's items for user-id: 3   was invoked
-2022-07-26 15:42:51.195  INFO 21996 --- [http-nio-8080-exec-5] com.revature.service.UserService         : Remove item from cart: user-id:  3 sku-added: 107   was invoked
-2022-07-26 15:42:51.254  INFO 21996 --- [http-nio-8080-exec-6] com.revature.service.UserService         : get cart's items for user-id: 3   was invoked
-2022-07-26 15:42:51.992  INFO 21996 --- [http-nio-8080-exec-8] com.revature.service.UserService         : Remove item from cart: user-id:  3 sku-added: 978   was invoked
-2022-07-26 15:42:52.033  INFO 21996 --- [http-nio-8080-exec-9] com.revature.service.UserService         : get cart's items for user-id: 3   was invoked
-2022-07-26 15:42:53.012  INFO 21996 --- [http-nio-8080-exec-10] com.revature.service.ProductService      : getInStock products invoked
-2022-07-26 15:42:53.013  INFO 21996 --- [http-nio-8080-exec-2] com.revature.service.ProductService      : getOutOfStock products invoked
-2022-07-26 15:42:58.699  INFO 21996 --- [http-nio-8080-exec-3] com.revature.service.UserService         : Add item to cart: user-id:  3 sku-added: 110   was invoked
-2022-07-26 15:43:06.052  INFO 21996 --- [http-nio-8080-exec-4] com.revature.service.UserService         : Add item to cart: user-id:  3 sku-added: 978   was invoked
-2022-07-26 15:43:09.273  INFO 21996 --- [http-nio-8080-exec-5] com.revature.service.UserService         : get cart's items for user-id: 3   was invoked
-2022-07-26 15:44:21.253  INFO 21996 --- [http-nio-8080-exec-8] com.revature.service.UserService         : get cart's items for user-id: 3   was invoked
-2022-07-26 15:44:54.623  INFO 21996 --- [http-nio-8080-exec-9] com.revature.service.UserService         : get cart's items for user-id: 3   was invoked
-2022-07-26 15:44:57.428  INFO 21996 --- [http-nio-8080-exec-10] com.revature.service.ProductService      : product was updated - changed quantity
-2022-07-26 15:44:57.442  INFO 21996 --- [http-nio-8080-exec-2] com.revature.service.ProductService      : product was updated - changed quantity
-2022-07-26 15:44:57.448  INFO 21996 --- [http-nio-8080-exec-1] com.revature.service.UserService         : user placed an order user-id: 3   was invoked
-2022-07-26 15:45:13.828  INFO 21996 --- [http-nio-8080-exec-3] com.revature.service.UserService         : get cart's items for user-id: 3   was invoked
-2022-07-26 15:45:15.262  INFO 21996 --- [http-nio-8080-exec-4] com.revature.service.ProductService      : getInStock products invoked
-2022-07-26 15:45:15.272  INFO 21996 --- [http-nio-8080-exec-5] com.revature.service.ProductService      : getOutOfStock products invoked
-2022-07-26 15:45:17.481  INFO 21996 --- [http-nio-8080-exec-7] com.revature.service.UserService         : Add item to cart: user-id:  3 sku-added: 2   was invoked
-2022-07-26 15:45:20.045  INFO 21996 --- [http-nio-8080-exec-8] com.revature.service.UserService         : get cart's items for user-id: 3   was invoked
-2022-07-26 15:45:24.020  INFO 21996 --- [http-nio-8080-exec-9] com.revature.service.ProductService      : product was updated - changed quantity
-2022-07-26 15:45:24.025  INFO 21996 --- [http-nio-8080-exec-10] com.revature.service.UserService         : user placed an order user-id: 3   was invoked
-2022-07-26 15:45:50.473  INFO 21996 --- [http-nio-8080-exec-2] com.revature.service.ProductService      : getInStock products invoked
-2022-07-26 15:45:50.487  INFO 21996 --- [http-nio-8080-exec-1] com.revature.service.ProductService      : getOutOfStock products invoked
-2022-07-26 15:45:52.013  INFO 21996 --- [http-nio-8080-exec-4] com.revature.service.UserService         : Add item to cart: user-id:  3 sku-added: 103   was invoked
-2022-07-26 15:45:54.207  INFO 21996 --- [http-nio-8080-exec-5] com.revature.service.UserService         : get cart's items for user-id: 3   was invoked
-2022-07-26 15:45:57.749  INFO 21996 --- [http-nio-8080-exec-6] com.revature.service.ProductService      : product was updated - changed quantity
-2022-07-26 15:45:57.757  INFO 21996 --- [http-nio-8080-exec-7] com.revature.service.UserService         : user placed an order user-id: 3   was invoked
-2022-07-26 15:48:33.597  INFO 21996 --- [http-nio-8080-exec-9] com.revature.service.ProductService      : getInStock products invoked
-2022-07-26 15:48:33.603  INFO 21996 --- [http-nio-8080-exec-10] com.revature.service.ProductService      : getOutOfStock products invoked
+2022-07-26 15:49:41.235  INFO 21996 --- [Thread-31] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-07-26 15:49:41.236  INFO 21996 --- [Thread-31] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2022-07-26 15:49:41.238  INFO 21996 --- [Thread-31] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
+2022-07-26 15:49:41.318  INFO 21996 --- [restartedMain] com.revature.ECommerceP2Application      : Starting ECommerceP2Application using Java 17.0.2 on DESKTOP-I1K00MM with PID 21996 (C:\Users\Nothing\Desktop\SpringToolsWorkSpace\eCommerceP2\target\classes started by Nothing in C:\Users\Nothing\Desktop\SpringToolsWorkSpace\eCommerceP2)
+2022-07-26 15:49:41.318  INFO 21996 --- [restartedMain] com.revature.ECommerceP2Application      : No active profile set, falling back to 1 default profile: "default"
+2022-07-26 15:49:41.490  INFO 21996 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-26 15:49:41.499  INFO 21996 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 2 JPA repository interfaces.
+2022-07-26 15:49:41.562  INFO 21996 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-07-26 15:49:41.563  INFO 21996 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-26 15:49:41.563  INFO 21996 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-07-26 15:49:41.576  INFO 21996 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-26 15:49:41.576  INFO 21996 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 256 ms
+2022-07-26 15:49:41.601  INFO 21996 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-07-26 15:49:41.606  INFO 21996 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
+2022-07-26 15:49:41.646  INFO 21996 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
+2022-07-26 15:49:41.646  INFO 21996 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-07-26 15:49:41.735  INFO 21996 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-26 15:49:41.735  INFO 21996 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-07-26 15:49:41.803  WARN 21996 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-07-26 15:49:41.882  INFO 21996 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-07-26 15:49:41.895  INFO 21996 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-07-26 15:49:41.902  INFO 21996 --- [restartedMain] com.revature.ECommerceP2Application      : Started ECommerceP2Application in 0.609 seconds (JVM running for 6148.484)
+2022-07-26 15:49:41.903  INFO 21996 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-07-26 15:49:59.971  INFO 21996 --- [RMI TCP Connection(136)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-07-26 15:50:00.007  INFO 21996 --- [RMI TCP Connection(136)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-07-26 15:50:00.008  INFO 21996 --- [RMI TCP Connection(136)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
+2022-07-26 15:50:00.010  INFO 21996 --- [RMI TCP Connection(136)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.
