@@ -3,8 +3,8 @@ version: 0.2
 phases:
   build:
     commands:
-      - java -version
-      - mvn clean package -Ddb_user${db_user} -Ddb_pass${db_pass} -Ddb_url${db_url}
+      -java -version
+      -mvn clean package -Ddb_user${db_user} -Ddb_pass${db_pass} -Ddb_url${db_url}
 artifacts:
   files:
     - 'Dockerfile'
