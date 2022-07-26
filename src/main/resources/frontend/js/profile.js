@@ -48,27 +48,21 @@ let putUser = async () => {
     email,
   };
 
-  console.log(updateObj);
-
-  let req = await fetch(`http://localhost:8080/users`, {
+  fetch(`http://localhost:8080/users`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(updateObj),
+  }).then((response) => {
+    response.json();
+    if (!response.ok) {
+      alert("User update failed! try again.");
+    } else {
+      alert("User updated successfully!!");
+      sessionStorage.setItem("id", `${updateObj.id}`);
+      sessionStorage.setItem("username", `${updateObj.username}`);
+      location.reload();
+    }
   });
-
-  let res = await req.json();
-
-  if (!res.ok) {
-    alert("User update failed! try again.");
-  } else {
-    alert("User updated successfully!!");
-  }
-  sessionStorage.setItem("id", `${res.id}`);
-  sessionStorage.setItem("username", `${res.username}`);
-
-  console.log(res);
-  console.log(sessionStorage.getItem("id"));
-  location.reload();
 };
 
 function update(event) {

@@ -100,6 +100,7 @@ public class ProductServiceTest {
 		stockList.add(p2);
 		stockList.add(p3);
 
+
 		List<Product> available = new ArrayList<>();
 		when(pRepo.findAll()).thenReturn(stockList);
 		available = ps.getInStock();
@@ -134,3 +135,4 @@ public class ProductServiceTest {
 
 	}
 }
+

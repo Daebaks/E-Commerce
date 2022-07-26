@@ -1,8 +1,8 @@
 package com.revature.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -64,7 +64,6 @@ public class UserServiceTest {
 		user2 = uService.getByUsername("johnsmith");
 		assertEquals(user1, user2);
 	}
-
 	@Test
 	public void testgetByUsernameNotExistException() {
 		user1 = new User("johnsmith", "asdasdasd", "john@hotmail.com");
@@ -73,7 +72,7 @@ public class UserServiceTest {
 			uService.getByUsername("johnsddmith");
 		});
 	}
-
+	
 	/* Testing getById() */
 	@Test
 	public void testgetByIdSuccessfully() {
@@ -86,6 +85,7 @@ public class UserServiceTest {
 
 	/* Testing login() */
 	@Test
+
 	public void testLoginSuccessfully() {
 		user1 = new User("johnsmith", "asdasdasd", "john@hotmail.com");
 		user1.setId(2);
@@ -93,7 +93,6 @@ public class UserServiceTest {
 		user2 = uService.login("johnsmith", "asdasdasd");
 		assertEquals(user1, user2);
 	}
-
 	@Test
 	public void testLoginUserNotFoundException() {
 		user1 = new User("johnsmith", "asdasdasd", "john@hotmail.com");
@@ -102,9 +101,8 @@ public class UserServiceTest {
 		assertThrows(UserNotFoundException.class, () -> {
 			uService.login("johnsmasdasdith", "123123123");
 		});
-
+		
 	}
-
 	@Test
 	public void testLoginWrongPasswordException() {
 		user1 = new User("johnsmith", "asdasdasd", "john@hotmail.com");
@@ -113,21 +111,20 @@ public class UserServiceTest {
 		assertThrows(WrongPasswordException.class, () -> {
 			uService.login("johnsmith", "123123123");
 		});
-
+		
 	}
-
 	/* Testing add() */
 	@Test
 	public void testAddSuccessfully() {
-
+	
 		user1 = new User("johnsmith", "asdasdasd", "john@hotmail.com");
 		user1.setId(2);
 		when(uRepo.save(user1)).thenReturn(user1);
 		user2 = uService.add(user1);
 		assertEquals(user1, user2);
 	}
-
 	@Test
+
 	public void testAddUsernameTakenException() {
 		user1 = new User("johnsmith", "asdasdasd", "john@hotmail.com");
 		user1.setId(2);
@@ -137,7 +134,6 @@ public class UserServiceTest {
 		List<User> userList = new ArrayList<>();
 		userList.add(user1);
 		userList.add(user2);
-
 		when(uRepo.findAll()).thenReturn(userList);
 		Set<User> uSet = new HashSet<>();
 		for (User u : userList) {
@@ -149,7 +145,8 @@ public class UserServiceTest {
 		assertThrows(UserNameAlreadyTakenException.class, () -> {
 			uService.add(user3);
 		});
-
+ 		
+		
 	}
 
 	/* Testing update() */
@@ -193,6 +190,7 @@ public class UserServiceTest {
 		assert uSet.equals(returned);
 	}
 
+	
 	/* Testing addToCart() */
 	@Test
 	public void testAddToCartSuccessfully() {
