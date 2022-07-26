@@ -100,17 +100,10 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 		return userRepo.save(userToUpdate);
 	}
 	
-	public boolean delete(int id) {
-		if(userRepo.getReferenceById(id)==null) {
-			throw new UserNotFoundException("Sorry, the user doesn't exist");
-		}else {
-		userRepo.deleteById(id);
-		return !(userRepo.existsById(id));}
-	}
+
 
 	public User login(String username, String password) {
 		User u = userRepo.getByUsername(username);
-//		log.info(u.toString());
 		if (u==null) {
 			throw new UserNotFoundException("Wrong username or user doesn't exist");
 		}

@@ -57,11 +57,6 @@ public class UserController {
 		return us.update(u);
 	}
 
-	@DeleteMapping
-	public boolean deleteUser(@RequestBody User u) {
-		return us.delete(u.getId());
-	}
-	
 	@PostMapping("addtocart/{sku}")
 	public ResponseEntity<User> addToCart(@PathVariable("sku") Long sku, @RequestHeader("user_id") int id) {
 		User u = us.addToCart(id, sku);
