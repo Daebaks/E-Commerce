@@ -19,34 +19,37 @@ public class ProductService {
 	@Autowired
 	ProductRepository productRepository;
 
+	// Constructor
+	public ProductService(ProductRepository productRepository) {
+		this.productRepository = productRepository;
+	}
+
 	public List<Product> findAll() {
 		return productRepository.findAll();
 	}
-	
-	
+
 	public Product findBySku(Long sku) {
 		return productRepository.getReferenceById(sku);
 	}
 
-
 	public Product update(Product product) {
 		return productRepository.save(product);
 	}
-	
 
 	public List<Product> getInStock() {
 		List<Product> available = new ArrayList<>();
-		for(Product p: productRepository.findAll()) {
-			if(p.getQuantity()>0) {
+		for (Product p : productRepository.findAll()) {
+			if (p.getQuantity() > 0) {
 				available.add(p);
 			}
 		}
 		return available;
 	}
+
 	public List<Product> getOutOfStock() {
 		List<Product> notAvailable = new ArrayList<>();
-		for(Product p: productRepository.findAll()) {
-			if(p.getQuantity()==0) {
+		for (Product p : productRepository.findAll()) {
+			if (p.getQuantity() == 0) {
 				notAvailable.add(p);
 			}
 		}
