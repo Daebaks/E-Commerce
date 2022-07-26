@@ -16,7 +16,7 @@ function fillCart(products) {
             <div class="the-text">
         <h2>Category: ${p.category}</h2>
         <h2>Name: ${p.name}</h2>
-        <h2>Price: ${p.unitprice}</h2>
+        <h2>Price: ${p.unitprice} $</h2>
         </div>
             <div class="the-image">
         <img src="${p.path}" alt="product_img" width="150" height="150"/>
