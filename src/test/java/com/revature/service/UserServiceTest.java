@@ -38,7 +38,6 @@ public class UserServiceTest {
 	private ProductRepository pRepo;
 
 	private UserService uService;
-	private ProductService pService;
 
 	private User user1;
 	private User user2;
@@ -49,7 +48,6 @@ public class UserServiceTest {
 	@BeforeEach
 	public void setUp() {
 		uService = new UserService(uRepo, pRepo);
-		pService = new ProductService(pRepo);
 	}
 
 	@AfterEach
@@ -60,7 +58,6 @@ public class UserServiceTest {
 		pro1 = null;
 		pro2 = null;
 		uService = null;
-		pService = null;
 	}
 
 	/* Testing getByUsername() */
@@ -122,26 +119,7 @@ public class UserServiceTest {
 	/* Testing add() */
 	@Test
 	public void testAddSuccessfully() {
-		
-		
-//		user1 = new User("johnsmith", "asdasdasd", "john@hotmail.com");
-//		user1.setId(2);
-//		user2 = new User("jackloyed", "123456", "jack@hotmail.com");
-//		user2.setId(3);
-//
-//		List<User> userList = new ArrayList<>();
-//		userList.add(user1);
-//		userList.add(user2);
-//
-//		when(uRepo.findAll()).thenReturn(userList);
-//		Set<User> uSet = new HashSet<>();
-//		for (User u : userList) {
-//			uSet.add(u);
-//		}
-//		Set<User> returned = uService.findAll();
-		
-		
-		
+	
 		user1 = new User("johnsmith", "asdasdasd", "john@hotmail.com");
 		user1.setId(2);
 		when(uRepo.save(user1)).thenReturn(user1);
@@ -221,7 +199,6 @@ public class UserServiceTest {
 		user1 = new User("johnsmith", "asdasdasd", "john@hotmail.com");
 		user1.setId(978);
 		when(uRepo.getReferenceById(978)).thenReturn(user1);
-		// when(uRepo.deleteById(978)).thenReturn(true);
 		when(uRepo.existsById(978)).thenReturn(false);
 		assertEquals(true, uService.delete(978));
 	}
