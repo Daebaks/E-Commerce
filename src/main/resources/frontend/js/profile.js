@@ -1,4 +1,4 @@
-const the_url = "http://localhost:8080";
+const the_url = "YOUR_ENDPOINT_URL_HERE";
 
 let personContainer = document.getElementById("user-container");
 

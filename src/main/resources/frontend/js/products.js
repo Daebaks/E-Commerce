@@ -1,6 +1,6 @@
 let available;
 let availableContainer = document.getElementById("in-stock-container");
-const the_url = "http://localhost:8080";
+const the_url = "YOUR_ENDPOINT_URL_HERE";
 
 function populateInStock(available) {
   for (p of available) {
@@ -14,7 +14,7 @@ function populateInStock(available) {
         <h2>Name: ${p.name}</h2>
         <h2>Price: ${(Math.round(p.unitprice * 100) / 100).toFixed(2)} $</h2>
         <h2>Quantity in stock: ${p.quantity}</h2>
-        <button id="add-to-cart" value="${
+        <button value="${
           p.sku
         }" onclick="addToCart(this.value)">Add to cart</button>
         `;
@@ -25,7 +25,7 @@ function populateInStock(available) {
 }
 
 (async () => {
-  let req = await fetch(`${URL}/products/instock`);
+  let req = await fetch(`${the_url}/products/instock`);
   let res = await req.json();
   available = res;
   availableContainer.innerHTML = "";
@@ -56,7 +56,7 @@ function populateOutOfStock(sold) {
 }
 
 (async () => {
-  let req = await fetch(`${URL}/products/outofstock`);
+  let req = await fetch(`${the_url}/products/outofstock`);
   let res = await req.json();
   sold = res;
   soldContainer.innerHTML = "";
@@ -80,7 +80,6 @@ function toggleOutOfStock() {
 //getting the current userid from session
 
 let addToCart = async (e) => {
-  let sku = e;
   let id = sessionStorage.getItem("id");
 
   if (!id) {
@@ -88,11 +87,16 @@ let addToCart = async (e) => {
     alert("Please login first!!!");
   }
 
-  let req = await fetch(`${the_url}/users/addtocart/${sku}`, {
+  fetch(`${the_url}/users/addtocart/${e}`, {
     method: "POST",
-    headers: { "Content-Type": "application/json", user_id: `${id}` },
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(id),
+  }).then((response) => {
+    response.json();
+    if (!response.ok) {
+      alert("Item already in your cart!!");
+    } else {
+      alert("added item");
+    }
   });
-  let res = await req.json();
-  console.log(res);
-  alert("added item");
 };

@@ -1,4 +1,4 @@
-const the_url = "http://localhost:8080";
+const the_url = "YOUR_ENDPOINT_URL_HERE";
 
 function toggleForm() {
   let registerForm = document.getElementById("register-form");
