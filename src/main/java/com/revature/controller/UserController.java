@@ -57,13 +57,13 @@ public class UserController {
 	}
 
 	@PostMapping("addtocart/{sku}")
-	public ResponseEntity<User> addToCart(@PathVariable("sku") Long sku, @RequestHeader("user_id") int id) {
+	public ResponseEntity<User> addToCart(@PathVariable("sku") Long sku, @RequestBody int id) {
 		User u = us.addToCart(id, sku);
 		return new ResponseEntity<User>(u, HttpStatus.OK);
 	}
 	
 	@PostMapping("removefromcart/{sku}")
-	public ResponseEntity<User> removeFromCart(@PathVariable("sku") Long sku, @RequestHeader("user_id") int id) {
+	public ResponseEntity<User> removeFromCart(@PathVariable("sku") Long sku, @RequestBody int id) {
 		User u = us.removeFromCart(id, sku);
 		return new ResponseEntity<User>(u, HttpStatus.OK);
 	}

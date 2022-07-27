@@ -1,6 +1,6 @@
 let available;
 let availableContainer = document.getElementById("in-stock-container");
-const URL = "http://localhost:8080";
+const the_url = "http://localhost:8080";
 
 function populateInStock(available) {
   for (p of available) {
@@ -88,7 +88,7 @@ let addToCart = async (e) => {
     alert("Please login first!!!");
   }
 
-  let req = await fetch(`http://localhost:8080/users/addtocart/${sku}`, {
+  let req = await fetch(`${the_url}/users/addtocart/${sku}`, {
     method: "POST",
     headers: { "Content-Type": "application/json", user_id: `${id}` },
   });

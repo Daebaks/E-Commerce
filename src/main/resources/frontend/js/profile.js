@@ -1,3 +1,5 @@
+const the_url = "http://localhost:8080";
+
 let personContainer = document.getElementById("user-container");
 
 (async () => {
@@ -10,7 +12,7 @@ let personContainer = document.getElementById("user-container");
     alert("You need to login first!!!");
   }
   let req = await fetch(
-    `http://localhost:8080/users/${sessionStorage.getItem("username")}`
+    `${the_url}/users/${sessionStorage.getItem("username")}`
   );
   let res = await req.json();
   personContainer.innerHTML = "";
@@ -48,7 +50,7 @@ let putUser = async () => {
     email,
   };
 
-  fetch(`http://localhost:8080/users`, {
+  fetch(`${the_url}/users`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(updateObj),
