@@ -1,3 +1,5 @@
+const the_url = "YOUR_ENDPOINT_URL_HERE";
+
 function toggleForm() {
   let registerForm = document.getElementById("register-form");
   if (registerForm.hasAttribute("hidden")) {
@@ -16,7 +18,7 @@ let postLogin = async () => {
     password,
   };
 
-  let req = await fetch(`http://localhost:8080/users/login`, {
+  let req = await fetch(`${the_url}/users/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(loginObj),
@@ -47,7 +49,7 @@ let postRegister = async () => {
     email,
   };
 
-  let req = await fetch(`http://localhost:8080/users`, {
+  let req = await fetch(`${the_url}/users`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(registerObj),
