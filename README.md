@@ -1,16 +1,31 @@
 # E-Commerce Project
 
-A Revamart App that provides the core features present in many common e-commerce applications. Functionality includes features such as creating, logging into an account, and deleting account. viewing products and viewing my profile, as well as adding items to a cart and checking out.
+Reva-mart is an online web application with a decorated and easy to use user interface to do E-commerce transactions from ordering online to having a profile pag and browsing available inventory.
 
-# User Stories
+# What the user can do
 
-- User should be able to log into the application.
-- User should be able to register a new account.
-- User should be able to create and maintain a profile page.
-- User should be able to see a list of available products for me to add to my cart.
-- User should be able to add items to my cart.
-- User should be able to checkout with the items in cart removing them from the inventory.
+- User is able to log into the application.
+- User is able to register a new account.
+- User is able to create and maintain a profile page.
+- User is able to see a list of available products for me to add to my cart.
+- User is able to add items to my cart, and change quantity.
+- User is able to checkout with the items in cart removing them from the inventory.
 
-# Environment Variables and software
-IDE, port 8080
-The frontend application must be deployed on S3 bucket.
+# Used tecknologies
+
+- Spring Boot (With Spring Data and Spring Web)
+- HTML/CSS/JavaScript
+- AWS Cloud Resources for Deployment: 
+  - PostgreSQL RDS
+  - Spring Boot Backend deployed on EC2
+  - Frontend deployed on S3 bucket
+- CI/CD Pipeline using AWS Elastic Beanstalk for Deployment
+- GitHub
+- JUnit Tests & Logging
+
+# Future considerations
+
+- Add a payment processing feature with debit/credit cards support
+- Add security token for user login
+- Adding persisted order history for every user
+- Do more broad testing for the API
