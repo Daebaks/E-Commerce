@@ -11,7 +11,7 @@ Reva-mart is an online web application with a decorated and easy to use user int
 - User is able to add items to my cart, and change quantity.
 - User is able to checkout with the items in cart removing them from the inventory.
 
-# Used tecknologies
+# Used technologies
 
 - Spring Boot (With Spring Data and Spring Web)
 - HTML/CSS/JavaScript
